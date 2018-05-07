@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>新闻精选</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/news.css" />
+	<link rel="stylesheet" href="css/swiper.min.css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="banner">
+			<div class="swiper-container swiper-container1" style="height:auto">
+				<ul class="swiper-wrapper">
+					
+					
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="newsbox">
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript">
+
+	// var x =['content','type'];
+	// var y='name=1111&type=aa';
+	// for(var i=0;i<x.length;i++){
+	// 	var mac=x[i];
+	// 	var reg=new RegExp(mac+'=.+(.*?)');
+	// 	console.log(reg);
+	// 	y=y.replace(reg,"");
+	// 	console.log(1,y)
+	// }
+		
+	window.onload=function(){
+		var news={
+			init:function(){
+				this.banner()
+				this.newslist();
+				this.swiper();
+				this.linkhref();
+			},
+			banner:function(){
+				$.ajax({
+					type:"post",
+					url:getUrl()+'/api/list/bannerlist',
+					dataType:"json",
+					success:function(data){
+						// console.log(data);
+						if(data.code==1){
+							var str='';
+							var bannerdata=data.bannerlist;
+							for(var i=0;i<bannerdata.length;i++){
+								var obj=bannerdata[i];
+								// console.log(obj.url)
+								str+='<li class="swiper-slide newslist" data-id='+obj.id+'><a href="javascript:;">'+
+									'<img src='+obj.imgurl+'>'+
+									'<p>'+obj.title+'</p>'+
+								'</a></li>'
+							};
+							$(".banner ul").append(str);
+							$(".newslist").on("click",function(event){
+								// alert(111)
+								event.preventDefault();
+								var id=$(this).attr("data-id");
+								localStorage.setItem("newsid",id);
+								window.location.href='news-content.html'
+							})
+						}
+						
+					}
+				})
+			},
+			newslist:function() {
+			        var that = this;
+			        var newsdata='';
+			        var adver ='';
+			        var adstr =''
+			        var other_adstr=''
+			        var nomore='<p class="pre nomore">没有更多数据啦~</p>';
+			        var tip='<p class="pre tip"><img src="img/loading.webp"></p>';
+			        var time='',id='',page='';
+			        var flag=true;
+			        newslist();
+		            function newslist(){
+		                if(flag==true){
+		                    $(".newsbox").append(tip);
+		                    $.ajax({
+		                        type:"post",
+		                        url:getUrl()+"/api/list/index",
+		                        dataType:"json",
+		                        async:false,
+		                        data:{"cgtime":time,"cid":id},
+		                        success:function(data){
+		                            // console.log(1,data);
+		                            flag=false;
+		                            if(data.code==1){
+		                                newsdata=data.newslist;
+		                                time=data.endcgtime;
+		                                id=data.endid;
+		                                // page=data.page;
+		                                $.ajax({
+		                                    type:"post",
+		                                    url:getUrl()+'/api/list/advertdata',
+		                                    dataType:"json",
+		                                    async:false,
+		                                    data:{"type":1,"page":page},
+		                                    success:function(data){
+		                                        console.log(0,data);
+		                                        page=data.page;
+		                                        if(data.code==1){
+		                                       
+		                                        var adver=data.advert;
+		                                        if(parseInt(adver.length)!==0){
+		                                        	if(adver[0]){
+		                                        		var adimg=adver[0].img;
+		                                        		var listr=''
+		                                        		for(var i=0;i<adimg.length;i++){
+		                                        		    var obj=adimg[i];
+		                                        		    // console.log(2,obj)
+		                                        		    if(adimg.length==1){
+		                                        		        var liclass='onlyli'
+		                                        		    }else{
+		                                        		        var liclass=""
+		                                        		    }
+		                                        		    listr+='<li class='+liclass+'><img src="" class="adimg showimg" data-src='+obj+'></li>'
+
+		                                        		   adstr='<div class="advertisement"><a class="adverlist" href='+adver[0].url+'>'+
+		                                        		            '<p class="theme">'+adver[0].title+'</p>'+
+		                                        		            '<div class="adver">'+
+		                                        		                '<ul>'+listr+'</ul>'+
+		                                        		            '</div>'+
+		                                        		            '<p class="tips">'+
+		                                        		                '<span class="ad">广告</span>'+
+		                                        		                '<span>'+adver[0].company+'</span>'+
+		                                        		            '</p>'+
+		                                        		        '</a></div>'
+		                                        		};
+		                                        	}
+		                                        	if(adver[1]){
+		                                        		var adimg=adver[1].img;
+		                                        		var listr=''
+		                                        		for(var i=0;i<adimg.length;i++){
+		                                        		    var obj=adimg[i];
+		                                        		    // console.log(2,obj)
+		                                        		    if(adimg.length==1){
+		                                        		        var liclass='onlyli'
+		                                        		    }else{
+		                                        		        var liclass=""
+		                                        		    }
+		                                        		    listr+='<li class='+liclass+'><img src="" class="adimg showimg" data-src='+obj+'></li>'
+
+		                                        		    other_adstr='<div class="advertisement"><a class="adverlist" href='+adver[1].url+'>'+
+		                                        		            '<p class="theme">'+adver[1].title+'</p>'+
+		                                        		            '<div class="adver">'+
+		                                        		                '<ul>'+listr+'</ul>'+
+		                                        		            '</div>'+
+		                                        		            '<p class="tips">'+
+		                                        		                '<span class="ad">广告</span>'+
+		                                        		                '<span>'+adver[1].company+'</span>'+
+		                                        		            '</p>'+
+		                                        		        '</a></div>'
+		                                        		}
+		                                        	}
+		                                            
+		                                        }
+		                                        
+		                                        }
+		                                        
+
+		                                    }
+		                                })
+
+
+		                            }else if(data.code==2){
+		                                $(".tip").hide();
+		                                $(".newsbox").append(nomore);
+		                                flag=false;
+		                                return false;
+		                            }else{
+		                                $(".tip").hide();
+		                                $(".newsbox").append(nomore);
+		                                flag=false;
+		                                // alert(data.msg);
+		                                return false
+		                            };
+		                            var str='';
+		                            
+
+		                            for(var i=0;i<newsdata.length;i++){
+		                                var obj=newsdata[i];
+		                                str+='<a class="newslist" href="javascript:;" data-id='+obj.id+'>'+
+		                                            '<div class="theme">'+
+		                                                '<p class="top">'+obj.title+'</p>'+
+		                                                '<p><span class="wh">'+obj.user+'</span><span class="time">'+obj.timestamp+'</span></p>'+
+		                                            '</div>'+
+		                                            '<div class="photo"><img src="" data-src='+obj.imgurl+' class="showimg"></div>'+
+		                                        '</a>';
+		                                if(i==2){
+		                                    str+=adstr;
+		                                }else if(i==8){
+		                                    str+=other_adstr;
+		                                }
+		                            };
+		                            
+		                            $(".tip").hide();
+		                            $(".newsbox").append(str)
+		                            that.lazyload();
+		                            that.linkhref();
+		                            flag=true
+		                            setTimeout(function(){
+		                                loadmore(newslist);
+		                            },1000)
+		                            
+		                            
+		                        }
+		                    });
+		                    
+		                };
+
+
+		            };
+			                
+			                
+
+			                
+			        },
+			swiper:function() {
+				bannerSwiper();
+			},
+			lazyload:function() {
+				lazyload(".showimg")
+			},
+			linkhref:function(){
+				$(".newslist").on("click",function(event){
+					// alert(111)
+					event.preventDefault();
+					var id=$(this).attr("data-id");
+					localStorage.setItem("newsid",id);
+					window.location.href='news-content.html'
+				})
+			}
+		};
+		news.init()
+	}
+	
+</script>
+</html>

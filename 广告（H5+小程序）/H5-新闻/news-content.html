@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>新闻精选</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/news.css" />
+	<link rel="stylesheet" href="css/swiper.min.css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<div class="content news-content">
+		<div class="top">
+			<h2 class="theme"></h2>
+			<p class='btm'><span class='wh'></span><span class='time'></span></p>
+			<div class="adver adver1">
+				
+			</div>
+		</div>
+		<div class="out-content">
+		
+		</div>
+		<div class="adver adver2">
+			
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+
+	
+	
+	var news={
+		init:function(){
+			this.content();
+			this.swiper();
+			this.lazyload();
+		},
+		content:function(){
+			var newid=localStorage.getItem("newsid");
+			console.log(newid)
+			$.ajax({
+				type:"post",
+				url:getUrl()+"/api/list/listcontent",
+				dataType:"json",
+				async:false,
+				data:{"lid":newid},
+				success:function(data){
+					// console.log(1,data);
+					if(data.code==1){
+						
+						var t=data.content;
+						var cbody=t.body;
+		
+						
+						var reg=/&amp;width=(.*?)&amp;height=(.*?)&amp;/gi;
+
+
+						cbody=cbody.replace('preview.html','player.html');
+						cbody=cbody.replace(reg,'&width=auto&height=auto&');
+
+						// var x='https://v.qq.com/iframe/player.html?vid=n0520y5e55f&width=500&height=375&auto=0';
+						// x=x.replace(reg,"&width=auto&height=auto&");
+						// console.log(99,x)
+
+
+
+
+						$(".top .theme").html(t.title)
+						$(".btm .wh").html(t.user)
+						$(".btm .time").html(t.createtime);
+						$(".out-content").html(cbody);
+
+						console.log(0,$(".video_iframe").attr("src"))
+						
+						
+						
+
+					};
+
+
+				}
+			});
+			$.ajax({
+				type:"post",
+				url:getUrl()+'/api/list/advertdata',
+				dataType:"json",
+				data:{"type":2},
+				success:function(data){
+					console.log(1,data);
+					if(data.code==1){
+						var obj=data.advert[0]
+						$(".adver1").append('<img src='+obj.banner+'>')
+						$(".adver2").append('<img src='+obj.contents+'>')
+					}
+					
+				}
+
+			})
+		},
+		swiper:function() {
+			bannerSwiper();
+		},
+		lazyload:function() {
+			lazyload(".showimg")
+		},
+		
+
+	};
+	news.init();
+
+		
+		
+</script>
+</html>
