@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script> 
+    <script src="../build/browser.min.js"></script>
+    <script src="../build/reflux.js"></script>
+  </head>
+  <body>
+   <div id="header" class='container'></div>
+   <div id="main" class='container'></div>
+   <div id="footer" class='container'></div>
+  <script type="text/babel">
+  var time=new Date();
+  console.log(time)
+      var HeaderActions=Reflux.createActions([
+        'clickShowInBody'
+      ])
+      var HeaderStore=Reflux.createStore({
+        listenables:[HeaderActions],
+        onClickShowInBody:function(data){
+          var returnData=data;
+          this.trigger(returnData)
+        }
+      })
+
+
+      var Header = React.createClass({
+                getInitialState:function(){
+                  return {
+                     headerName:"index" 
+                  }  
+                }
+                ,
+                handleClick:function(){
+                  var content = eval(document.getElementById("edit")).value;
+                  console.log(content)
+                  HeaderActions.clickShowInBody(content);//发送action请求
+                  console.log(111);
+                }
+                ,
+                render:function(){
+                  var headerName = this.props.headerName;
+                  return (
+                    <div className='panel panel-default'>
+                        <h1>{headerName}</h1>
+                        <h3> 
+                            
+                            <input id="edit" type="text"></input>
+                            <button className ='btn btn-info btn-sm' onClick={this.handleClick}>输入显示内容</button>
+                       </h3>
+                    </div>
+                  )
+                }
+      });
+
+      var Body = React.createClass({
+          
+          mixins: [Reflux.listenTo(HeaderStore, 'onClickShowInBody')],
+          
+          
+          getInitialState:function(){
+            return {
+               content:"body"
+            }  
+          },
+         onClickShowInBody:function(data){
+             console.log(data);
+             this.setState({
+                 content:data
+             })
+         },
+                                
+          render:function(){
+            var content = this.state.content;
+            return (
+                <div className='panel panel-default'>
+                    <p>{content}</p>
+                </div>
+            )
+          }
+      });
+
+      var Footer = React.createClass({
+          
+          mixins:[Reflux.listenTo(HeaderStore, 'onClickShowInBody')], 
+
+          
+          getInitialState:function(){
+             return {
+                 content:'footer'
+             }   
+          
+          },
+           
+           onClickShowInBody:function(data){
+              this.setState({
+                  content:data
+              });
+           },
+
+          render:function(){
+              var content = this.state.content;
+              return (
+                 <div className='panel panel-default'>
+                    <p>{content}</p>
+                 </div>
+              )
+          }
+      });
+
+
+      ReactDOM.render(
+        <Header headerName='reflux Test'/>,
+        document.getElementById('header')
+      );
+      ReactDOM.render(
+        <Body />,
+        document.getElementById('main')
+      );
+      ReactDOM.render(
+        <Footer />,
+        document.getElementById('footer')
+      );
+
+      
+
+
+    </script>
+  </body>
+</html>

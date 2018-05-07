@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script> 
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+   <div id="cont" class='container'></div>
+ 
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          counter: 0
+        }
+        this.addOne = this.addOne.bind(this)
+      }
+
+      addOne() {
+        this.setState({
+          counter: this.state.counter + 1
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <button
+              onClick={ this.addOne }>
+              Increment
+            </button>
+            { this.state.counter }
+          </div>
+        )
+      }
+    }
+
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('cont')
+    );
+  </script>
+  </body>
+</html>

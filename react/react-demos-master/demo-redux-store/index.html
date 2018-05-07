@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script> 
+    <script src="../build/browser.min.js"></script>
+    <script type="text/javascript" src='https://cdn.bootcss.com/react-redux/5.0.6/react-redux.js'></script>
+  </head>
+  <body>
+   <div id="cont" class='container'></div>
+ 
+  <script type="text/babel">
+
+  //解构赋值放在参数部分
+  const Counter = ({ value, onIncrement, onDecrement }) => (
+    <div>
+    <h1>{value}</h1>
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
+    </div>
+  );
+
+  const reducer = (state = 0, action) => {
+    switch (action.type) {
+      case 'INCREMENT': return state + 1;
+      case 'DECREMENT': return state - 1;
+      default: return state;
+    }
+  };
+
+  const store = createStore(reducer);
+
+  const render = () => {
+    ReactDOM.render(
+      <Counter
+        value={store.getState()}
+        onIncrement={() => store.dispatch({type: 'INCREMENT'})}  
+        onDecrement={() => store.dispatch({type: 'DECREMENT'})}
+      />,
+      document.getElementById('cont')
+    );
+  };
+
+  render();
+  store.subscribe(render);
+
+   
+  </script>
+  <!-- const VisibleTodoList=connect( //由react-redux ,负责输通过connect方法自动生成的容器组件，mapStateToProps负责输入逻辑； mapDispatchToProps，负责输出逻辑；
+   mapStateToProps,
+   mapDispatchToProps
+  )(TodoList) -->
+  <!-- 
+    getState()获取state
+    dispatch(action)更新state
+     subscribe(listener)注册监听器
+
+   -->
+  </body>
+</html>
