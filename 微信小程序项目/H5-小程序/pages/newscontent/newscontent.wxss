@@ -1,0 +1,10 @@
+@import "../common/lib/weui.wxss";
+.news-content{background: #fff;padding:25rpx;}
+/* .news-content .top p{font-size: 16rpx;line-height: 20rpx;color: #ababab;} */
+.news-content .top .btm{margin-bottom: 40rpx;font-size: 32rpx;line-height: 40rpx;color: #ababab;}
+.news-content .top .wh{color: #7daaf9;margin-right: 40rpx;margin-bottom:40rpx}
+.news-content .top .theme{font-size: 48rpx;color: #010101;line-height:20rpx;font-weight: 400;border-bottom: none}
+.news-content .adver{height:auto}
+.news-content .adver img{width:100%;height: 100%}
+.news-content .out-content{width: 100%;overflow: hidden;}
+.news-content .out-content img{width: 100% !important;height: auto;display: block;}

@@ -1,0 +1,28 @@
+/* pages/newslist/newslist.wxss */
+@import "../common/lib/weui.wxss";
+.container{width: 100%;}
+.swiper-item{
+  display: block;
+  height: 150px;
+}
+.newsbox{padding:0 25rpx;}
+.newsbox .newslist{display: block;width: 100%;position: relative;border-bottom: 1px solid #ababab;padding:25rpx 0;}
+.newsbox .newslist .theme{width: 63%;color: #ababab;font-size: 30rpx;line-height: 46rpx}
+.newsbox .newslist .theme .top{color:#010101;font-size: 36rpx;line-height: 56rpx;margin-bottom:10rpx;overflow: hidden;-webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;}
+.newsbox .newslist .theme .time{margin-left: 25rpx;}
+.newsbox .newslist .photo{width:230rpx;height: 160rpx;overflow: hidden;position: absolute;top:30rpx;right: 0;}
+.newsbox .newslist .photo .img{width: 100%;height: auto}
+.advertisement{padding:0 25rpx;}
+.advertisement .adverlist{padding:25rpx 0;border-bottom: 1rpx solid #ababab; }
+.advertisement .adverlist .theme{width: 100%;font-size: 36rpx;color:#010101;}
+.advertisement .adverlist .adver{overflow: hidden;margin:20rpx 0;}
+.advertisement .adverlist .li{width: 33.33%;float:left;padding:0 0.05rem;box-sizing: border-box;}
+.advertisement .adverlist .onlyli{width:100%;float:left;padding:0 0.05rem;box-sizing: border-box;}
+.advertisement .adverlist .tips{font-size: 30rpx;color:#ababab;}
+.advertisement .adverlist .tips .ad{font-size: 30rpx;color:#0074f6;border:1px solid #0074f6;padding:0 10rpx;border-radius: 5rpx;margin-right: 30rpx}
+.advertisement .adverlist .showimg{width: 33.33%;float:left;padding:0 5rpx;box-sizing: border-box;}
+.advertisement .adverlist .ad .img{width: 100%;height: auto;display: block;}
+.refresh-block{width: 30%;margin: 0 auto}
+.refresh-block image{width:100%;height: 50%;}

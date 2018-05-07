@@ -1,0 +1,31 @@
+<import src='../../wxParse/wxParse.wxml'/>
+<view class='container'>
+    <loading hidden="true">
+        加载中...
+    </loading>
+    <view class='page-body'>
+        <view class='page-section'>
+            <view class='news-content'>
+                <view class='top'>
+                    <text class='theme'>{{title}}</text>
+                    <view class='btm'>
+                        <text class='wh'>{{user}}</text>
+                        <text>2分钟前</text>
+                    </view>
+                    <view class='adver adver1'>
+                    <image src='{{adver.banner}}'></image>
+                </view>
+                </view>
+                
+                <!--引入内容  -->
+                <view class='out-content'>
+                    <template is='wxParse' data="{{wxParseData:article.nodes}}"/>
+                </view>
+                <view class='adver adver2'>
+                    <image src='{{adver.contents}}'></image>
+                </view>
+                
+            </view>
+        </view>
+    </view>
+</view>

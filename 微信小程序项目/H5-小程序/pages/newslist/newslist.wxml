@@ -1,0 +1,79 @@
+<view class='container'>
+  <loading hidden="true">
+        加载中...
+ </loading> 
+  <view class='page-body'>
+    <view class='page-section  swiper'>
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="true" interval="2000" duration="500">
+        <block wx:for="{{banner}}" wx:key="*this">
+          <swiper-item>
+            <navigator id='{{item.id}}' url='../newscontent/newscontent?id={{item.id}}'>
+                <image src="{{item.img}}" class="slide-image" mode='widthFix'></image>
+            </navigator>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--新闻列表  -->
+    <view class='page-section'>
+        <view class='newsbox'>
+            <block wx:for='{{newslist}}'  wx:key="*this" wx:for-item="item">
+                <navigator class='newslist' id='{{item.id}}' url='../newscontent/newscontent?id={{item.id}}'>
+                    <view class='theme'>
+                        <text class='top'>{{item.title}}</text>
+                        <view>
+                        <text class='wh'>{{item.user}}</text>
+                        <text class='time'>{{item.timestamp}}</text>
+                        </view>
+                    </view>
+                    <view class='photo'>
+                        <image src='{{item.imgurl}}' class="img"  mode='widthFix'></image>
+                    </view>
+                </navigator>
+                    
+                <view wx:if='{{index==2}}' class='advertisement'>
+                    <view class='adverlist' wx:if='{{adverlist!==""}}'>
+                        <text class='theme'>{{adverlist.title}}</text>
+                        <view class='adver'>
+                            <view>
+                                <block wx:for="{{adverlist.img}}" wx:key="*key">
+                                    <view class="{{len==1?onlyli:'li'}}">
+                                        <image class='adimg' src='{{item}}' mode='widthFix'></image>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                        <view class='tips'>
+                            <text class='ad'>广告</text>
+                            <text>{{adverlist.company}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if='{{index==8}}' class='advertisement'>
+                    <view class='adverlist' wx:if='{{otheradverlist!==""}}'>
+                        <text class='theme'>{{otheradverlist.title}}</text>
+                        <view class='adver'>
+                            <view>
+                                <block wx:for="{{otheradverlist.img}}" wx:key="*key">
+                                    <view class="{{len==1?onlyli:'li'}}">
+                                        <image class='adimg' src='{{item}}' mode='widthFix'></image>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                        <view class='tips'>
+                            <text class='ad'>广告</text>
+                            <text>{{otheradverlist.company}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block> 
+          </view>
+         
+    </view>
+     <view class="refresh-block" wx:if="{{loading}}">
+    <image animation="{{refreshAnimation}}" src="../../images/loading.webp" class='img' mode='widthFix'></image>
+    </view> 
+  </view>
+</view>
