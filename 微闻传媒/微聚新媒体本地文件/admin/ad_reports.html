@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-switch.css" rel="stylesheet">
+   
+    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="css/daterangepicker.css" rel="stylesheet">
+     <!-- Switchery -->
+    <link href="css/switchery.min.css" rel="stylesheet">
+     <!-- iCheck -->
+    <link href="css/green.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/reports.css" rel="stylesheet">
+    
+</head>
+
+<body class="">
+    <div class="container">
+        <div class="nav-md">
+            <!-- 侧边导航开始 -->
+            <div class='leftnav'>
+              <div class='col-md-3 left_col'>
+                <div class='left_col scroll-view'>
+                  <div class="navbar nav_title" style="border: 0;">
+                    <a href="" class="site_title"><!-- <img src="images/logo.png"> --><span class='ss'>央视新媒体<br>广告投放平台</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+              <br>
+              <!-- /menu profile quick info -->
+
+              <!-- sidebar menu -->
+              <div id="sidebar-menu" class="">
+                <div class="menu_section">
+                  <div>
+                      <ul class="nav side-menu">
+                        <li>
+                          <a href='javascript:;'><i class="fa fa-home"></i>首页</a>
+                       </li>
+                       <li class='active'>
+                         <a href='javascript:;'><i class="fa fa-rss-square"></i>资源</a>
+                     </li>
+                     <li>
+                         <a href='javascript:;'><i class="fa fa-line-chart"></i>报表<span class='fa fa-chevron-down'></span></a>
+                        <ul class='nav child_menu'>
+                          <li><a href="javascript:;">整体报表</a></li>
+                          <li><a href="javascript:;">广告位报表</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                         <a href='javascript:;'><i class="fa fa-rmb"></i>财务</span></a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <!-- /sidebar menu -->
+ </div>
+</div>
+</div>
+<!-- 侧边导航结束 -->
+<!-- header开始 -->
+<div class="top_nav">
+  <div class="nav_menu">
+    <nav>
+      <img src="" class='photo'>
+      <div class="info"><span class="name"></span><span class="curid"></span><span class="fa fa-chevron-down drop-down"></span><span class="ad">广告主</span>
+        <ul class="about dropdown-menu" style="display: none;">
+          <li><a href="javascript:;">资质管理</a></li>
+          <li><a href="javascript:;">修改密码</a></li>
+          <li><a href="javascript:;">退出登录</a></li>
+        </ul>
+      </div>
+      
+    </nav>
+</div>
+</div>
+<!-- header结束 -->
+<!-- 主体内容开始 -->
+<div class="Rcontent">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style='padding:0'>
+          <div class="x_content report_cont">
+            <div class="top">
+              <h3>广告位报表 <span>Application report</span></h3>
+              <!-- datepicker开始 -->
+              <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 0px 10px; border: 1px solid #ccc;margin-right:0">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar" style='margin-right:10px'></i>
+                <span>10/30/2014 - 11/22/2015</span> <b class="caret"></b>
+              </div>
+               <!-- datepicker结束 -->
+
+            </div>
+          
+            <div class="select" style='margin:30px 0 0'>
+              <select id='left' class='trendClass'>
+                <option value='0'>曝光量（次）</option>
+                <option value='1'>点击量（次）</option>
+                <option value='2'>点击率（%）</option>
+                <option value='3'>消耗金额（元）</option>
+              </select>
+            </div>
+
+            <div id="cur_graph_bar" style='height:350px'>
+              
+            </div>
+            <div class="tip_container" style='display: none'>
+              <img src="images/nodata.png" class='cryface'>
+              <h2>抱歉，您所选的时间范围内暂无数据~</h2>
+            </div>
+          </div>
+        </div>
+        <div class="x_panel" style='padding-top:0px'>
+          <div class="x_content">
+
+            <table id="datatable-buttons" class="table table-striped table-bordered cur-datatable-buttons dataTable">
+              <thead>
+                <tr>
+                  <th>广告位</th>
+                  <th>广告类型</th>
+                  <th>曝光量（次）</th>
+                  <th>点击量（次）</th>
+                  <th>点击率</th>
+                  <th>填充率</th>
+                  <th>eCPM(元)</th>
+                  <th>CPC(元)</th>
+                  <th>收入(元)</th>
+                </tr>
+              </thead>
+
+
+              <tbody>
+
+               
+              </tbody>
+             
+            </table>
+
+           <!-- <div id="datatable_paginate"></div> -->
+          <!--  <div id="page"></div> -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  
+  
+           
+</div>
+
+<!-- 主体内容结束 -->
+
+</div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-switch.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/paging.js"></script>
+<!-- morris.js -->
+<script src="js/raphael.min.js"></script>
+<script src="js/morris.min.js"></script>
+
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/dataTables.buttons.min.js"></script>
+<script src="js/buttons.bootstrap.min.js"></script>
+<script src="js/buttons.html5.min.js"></script>
+<script src="js/buttons.print.js"></script>
+<!-- Switchery -->
+<script src="js/switchery.min.js"></script>
+<!-- iCheck -->
+<script src="js/icheck.min.js"></script>
+<script src="js/mSlider.js"></script>
+<script src="js/custom.min.js"></script>
+
+<script src="js/base.js"></script>
+
+<script type="text/javascript">
+  
+  init_daterangepicker('#reportrange');
+  // $('.dataTable').dataTable({
+  //   "language": {
+  //     "paginate": {
+  //       "next": "后一页",
+  //       "previous": "前一页"
+  //     }
+  //   }
+  // } );
+  var detail={
+    init:function(){
+      this.id='wjrmt';
+      this.total='';
+      this.pageSize="";
+      this.endTime='2017-12-29';
+      this.startTime='2017-12-21';
+      this.flag=true;
+      this.ydata=[];//走势图纵轴数据
+      this.xdata=[];//走势图横轴日期
+      this.ykey='shownum';
+      this.keytext='曝光量';
+      this.pagelist();
+      this.ad_trend(this.id,this.startTime,this.endTime);
+      this.filterList();
+         },
+  
+    pagelist:function(){
+      var that = this;
+      that.ad_reportlist(that.id,that.startTime,that.endTime);
+      // that.ajaxPage();
+
+    },
+    ad_reportlist:function(id,startTime,endTime){
+      var that=this;
+      $.ajax({
+        type:"get",
+        url:"http://dc.wjrmt.cn/ssp/placesumary",
+        dataType:"json",
+        data:{"source":id,"start":startTime,"end":endTime},
+        async:false,
+        success:function(data){
+          console.log(1,data)
+          if(data.status=='success'){
+            $(".tip_container").css("display","none");
+            var adData=data.datas;
+            that.total=data.pageinfo.total;
+            that.pageSize=data.pageinfo.limit;
+            var str='';
+            for(var i=0;i<adData.length;i++){
+              var obj=adData[i];
+              str+='<tr>'+
+                  '<td class="adsense" data-id='+obj.places_id+'><a href="javascript:;">'+obj.places_id+'</a></td>'+
+                  '<td>/</td>'+
+                  '<td>'+obj.shownum+'</td>'+
+                  '<td>'+obj.clicknum+'</td>'+
+                  '<td>'+obj.crt+'</td>'+
+                  '<td>'+obj.frt+'</td>'+
+                  '<td>'+obj.ecpm+'</td>'+
+                  '<td>'+obj.cpc+'</td>'+
+                  '<td>'+obj.income+'</td>'+
+                '</tr>';
+                
+            };
+            $("#datatable-buttons tbody").html("");
+            $("#datatable-buttons tbody").append(str);
+
+          
+            // $("#datatable-buttons th:lt(2)").addClass("sorting_disabled");
+            // $("#datatable-buttons th:lt(2)").addClass("sorting_");
+           //  $("#datatable-buttons th:lt(2)")[0].removeAttribute('aria-sort');
+            // $("#datatable-buttons th:lt(2)").removeAttribute("aria-label");
+
+
+            
+
+            $(".adsense").click(function(){
+              var adsense_id=$(this).data("id");
+              window.open('date_report.html?'+'places_id='+adsense_id);
+            })
+
+            
+          }else{
+            $(".tip_container").css("display","block");
+          }
+
+        }
+      })
+    },
+    ajaxPage:function(){
+      var that = this;
+      var maxPage=Math.ceil(that.total/that.pageSize);
+      //分页
+      $("#page").paging({
+        pageNo:1,
+        totalPage: maxPage,
+        totalSize: that.total,
+        callback: function(num) {
+          that.ad_reportlist(num,that.id,that.startTime,that.endTime);
+
+        }
+      });
+    },
+    filterList:function(){
+      var that = this;
+     //时间段筛选
+     $(".range_inputs .applyBtn,.ranges ul li").click(function(){
+       that.startTime=$(".calendar input[name='daterangepicker_start']").val();
+       
+       that.endTime=$(".calendar input[name='daterangepicker_end']").val();
+         that.ad_reportlist(1,that.id,that.startTime,that.endTime);
+         that.ad_trend(that.id,that.startTime,that.endTime);
+     });
+     //数据类型切换
+     $(".trendClass").change(function(){
+       var trendType=$(this).val();
+       if(trendType=='0'){
+         that.ykey='shownum';
+         that.keytext='曝光量';
+       }else if(trendType=='1'){
+         that.ykey='clicknum';
+         that.keytext='点击量';
+       }else if(trendType=='2'){
+        that.ykey='crt';
+        that.keytext='点击率';
+       }else if(trendType=='3'){
+          that.ykey='income';
+          that.keytext='收入';
+       };
+       $("#cur_graph_bar").html("");
+      that.ad_trend(that.id,that.startTime,that.endTime);
+     });
+    },
+
+    ad_trend:function(id,startTime,endTime){
+      var that=this;
+       $.ajax({
+         type:"get",
+         url:"http://dc.wjrmt.cn/ssp/placesumary",
+         dataType:"json",
+         data:{"source":id,"start":startTime,"end":endTime,"limit":100},
+         async:false,
+         success:function(data){
+           console.log(1,data);
+           that.xdata=[];
+           if(data.status=='success'){
+             $(".tip_container").css("display","none");
+             var adData=data.datas;
+             for(var i=0;i<adData.length;i++){
+               var obj=adData[i];
+               for(var key in obj){
+                 if(key==that.ykey){
+                   var itemdata={
+                     adsense:obj.places_id,
+                     val:obj[key]
+                   };
+                   that.xdata.push(itemdata);
+                 }
+               }
+                 
+             };
+
+             init_charts(that.xdata,that.keytext);
+
+             
+           }else{
+             $(".tip_container").css("display","block");
+           }
+
+         }
+       })
+      
+      function init_charts(xdata,ykey) {
+        
+        if( typeof (Morris) === 'undefined'){ return; }
+        
+        if ($('#cur_graph_bar').length){ 
+       
+          Morris.Bar({
+            element: 'cur_graph_bar',
+            data:xdata,
+            xkey: 'adsense',
+            ykeys: ['val'],
+            labels: [ykey],
+            barRatio: 0.4,
+            barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+            xLabelAngle: 35,
+            hideHover: 'auto',
+            resize: false
+          });
+
+        } 
+        
+        
+      };
+      
+    }
+   
+
+
+  };
+  detail.init();
+  $(document).ready(function(){
+     $("#datatable-buttons th:lt(2)").removeClass("sorting_asc");
+     $("#datatable-buttons th:lt(2)").removeClass("sorting");
+     $("#datatable-buttons th:lt(2)").addClass("sorting_disabled");
+
+     $("#datatable-buttons_previous a").html("上一页")
+     $("#datatable-buttons_next a").html("下一页")
+
+     $('#datatable-buttons th').click(function(){
+        $("#datatable-buttons th:lt(2)").removeClass("sorting").addClass("sorting_disabled")
+     });
+     $("#datatable-buttons th:lt(2)").click(function(event){
+        $("#datatable-buttons th:lt(2)").removeClass("sorting_asc");
+        $("#datatable-buttons th:lt(2)").removeClass("sorting_desc");
+        return false
+
+     })
+     
+     
+  });
+ 
+
+   
+
+</script>
+</body>
+</html>

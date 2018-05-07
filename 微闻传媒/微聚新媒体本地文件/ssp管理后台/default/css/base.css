@@ -1,0 +1,21 @@
+*{margin:0;padding: 0}
+a{text-decoration: none ;cursor: pointer}
+p,ul{margin-bottom: 0}
+li{list-style: none;}
+.totalPages,.totalSize{float: left;}
+#page{text-align: right;}
+#page a{margin: 0 5px;}
+#page a.current{color: #000;font-weight: bold;}
+body {
+    color: #73879C;
+    background: #f7f7f7;
+    font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.471;
+    min-width: 560px;
+}
+h1,h2,h3,h4,h5,h6,em,i{
+    font-style: normal;
+    margin:0;
+}

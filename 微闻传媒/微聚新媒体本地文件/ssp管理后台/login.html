@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>登录</title>
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="default/css/base.css" rel="stylesheet">
+	<link href="default/css/index.css" rel="stylesheet">
+</head>
+<body style='background: url(default/images/bg.jpg) no-repeat 0 0;background-size: 100%;width:100%;height:100%'>
+	<div class="wrap">
+	    <div class="head">
+	        <h1><img src="default/images/dsp_logo.png" alt=""></h1><span></span><p>广告投放平台</p>
+	    </div>
+	    <div class="err">用户名或者密码错误</div>
+	    <div class="container wrap1" style="height:450px;">
+	        <div class="col-sm-8 col-md-5 center-auto main_content">
+	            <span class="blue"></span>
+	            <span class="red"></span>
+	            <span class="green"></span>
+	            <span class="yellow"></span>
+	            <p class="font26" id="logo"><!-- <b>CCTV<span class="badeg"></span></b> -->登录平台</p>
+	            <form class="pd-sm-50 pd-xs-20 ">
+	                <div class="form-group">
+	                    <div>
+	                        用户名
+	                    </div>
+	                    <i class="fa fa-user"></i>
+	                    <input type="email" class="login_input" id="User" value="" placeholder="请输入用户名" />
+	                </div>
+	                <div class="error">用户名有误(必须为11位手机号)</div>
+	                <div class="form-group mg-t10">
+	                    <div>
+	                        密码
+	                    </div>
+	                    <i class="fa fa-lock"></i>
+	                    <input type="password" class="login_input" id="Password" value="" placeholder="请输入密码" />
+	                </div>
+	                <div class="error">密码有误(8-16位必须包含数字和字母)</div>
+	                <div class="form-group mg-t10">
+	                    <div>
+	                        验证码
+	                    </div>
+	                    <i class="fa fa-lock"></i>
+	                    <input type="text" class="login_input"  id="Authcode" placeholder="请输入验证码" />
+	                    <img src="/dsplogin/checksum?length=5&t=" alt="" class="img">
+	                </div>
+	                <div class="error">验证码有误</div>
+	                <div class="checkbox mg-t25">
+	                    <label class="chance">
+	                        <input type="checkbox" class="check" checked />
+	                        <span class="active"></span>
+	                        <em>记住密码</em>
+	                    </label>
+	                    <button type="button" class="login_btn" id="btn">登 录</button>
+	                </div>
+	            </form>
+	        </div><!--row end-->
+	    </div><!--container end-->
+	</div>
+	<script src="default/js/jquery.min.js"></script>
+	<script src="default/js/bootstrap.min.js"></script>
+	<script src="default/js/base.js"></script>
+	<script>
+	    //    var user,pwd;
+	    var flag=true,indexs=0;
+	    function choice(){
+	        flag=    $(".check")[0].checked;
+	        if(flag){
+	            $(".active").text("✔")
+	        }else{
+	            $(".active").text("")
+	        }
+	    };
+	    choice();
+	    $(".check").on("change",function(){
+	        choice();
+	    });
+	    $(".img").on("click",function(){
+	            indexs++;
+	            $(this).attr("src",getDataUrl()+"/dsplogin/checksum?length=5&t="+indexs)
+	    });
+	   
+	    $("body").keydown(function () {
+	        var event=arguments.callee.caller.arguments[0]||window.event;//消除浏览器差异  
+	        if (event.keyCode == 13){
+	            $("#btn").click();
+	        }
+	    })
+	    $("#btn").on("click",function(){
+	        var users=$("#User").val(),
+	            pwds=$("#Password").val(),
+	            codes=$("#Authcode").val(),
+	            str=1;
+	//        if(user&&pwd){
+	//            //验证成功，调取接口
+	//
+	//        }
+	        if(flag){
+	            str=1
+	        }else{
+	            str=0
+	        }
+	        $.ajax({
+	            url:getDataUrl()+"/dsplogin/login",
+	            type:"post",
+	            data:{
+	                dspuser: users ,
+	                dsppwd:  pwds,
+	                dspcode:codes,
+	                keep:str
+	            },
+	            success:function(data){
+	                var json=JSON.parse(data),val;
+	//                console.log(json);
+	                if(json.status==2){
+	                    val=json.data;
+	                    errors(val)
+	                    $(".img").click();
+	                }else if(json.status==1){
+	                     val=json.data;
+	                    errors(val)
+	                    $(".img").click();
+	                }else if(json.status==0){
+	                     val=json.data;
+	                    errors(val)
+	                    $(".img").click();
+	                }else{
+	                    slide();
+	                    var url=json.data.url;
+	                    window.location.href=getDataUrl()+url;
+	                }
+	            }
+	        });
+	    });
+	    function errors(text){
+	        $(".err").text(text)
+	        $(".err").slideDown()
+	    };
+	    function slide() {
+	        $(".err").slideUp()
+	    }
+	</script>
+</body>
+</html>

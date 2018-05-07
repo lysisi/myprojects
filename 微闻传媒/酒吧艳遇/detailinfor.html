@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>个人详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/material-dashboard.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="../meeth5/css/index.css" />
+    <link rel="stylesheet" href="css/personal.css" />
+
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/personal.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+
+</head>
+<body style="padding-bottom: 1.5rem;">
+<div class="">
+    <div class="maintop">
+        <div class="swiper-container" class="swiper-photos">
+            <ul class="swiper-wrapper )">
+                <li class="swiper-slide"><img src="img/photo.jpg"></li>
+                <li class="swiper-slide"><img src="img/photo.jpg"></li>
+                <li class="swiper-slide"><img src="img/photo.jpg"></li>
+                <li class="swiper-slide"><img src="img/photo.jpg"></li>
+            </ul>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="multibox">
+            <div class="tease">撩</div>
+            <div class="like">
+                <img src="../meeth5/img/like.png" alt="">
+            </div>
+            <div class="secret">秘</div>
+            <div class="bullet">弹</div>
+        </div>
+        <div class="bullet_gift">
+
+        </div>
+        <div class="bullet_screen">
+
+        </div>
+        <div class="my_infor">
+            <img src="" alt="" class="head">
+            <div class="my_content">
+                <h2 class="my_name"></h2>
+                <div class="my_label">
+                    <span class="age" data-sex="1"></span>
+                    <span class="constellation"></span>
+                </div>
+                <div class="my_heart"></div>
+            </div>
+            <img src="" alt="" class="heart">
+        </div>
+
+    </div>
+
+
+    <div class="detail-infor">
+        <div class="inforlists">
+            <h3 class='title'>TA的基本信息</h3>
+            <ul>
+                <li id='avatar'><span class='slogo'><img src="img/headphoto.png" style='width:0.23rem'></span>头像 <img class='headphoto' src='' /></li>
+                <li id='nicheng'><span class='slogo'><img src="img/nicheng.png" style='width:0.22rem'></span>昵称 <span class='nicheng'>hahahh</span></li>
+                <li id='sexy' ><span class='slogo'><img src="img/sexy.png" style='width:0.32rem'></span>性别 <span class='sexy'>女</span></li>
+                <li id='three' ><span class='slogo'><img src="img/sexy.png" style='width:0.32rem'></span>三维 <span class='three'>女</span></li>
+                <li id='birthday' ><span class='slogo'><img src="img/birthday.png" style='width:0.34rem'></span>生日 <span class='birthday'></span></li>
+                <!-- <li id='hometown'><span class='slogo'><img src="img/hometown.png" style='width:0.33rem'></span>家乡 <span class='hometown'>中国</span></li> -->
+                <li id='blood' ><span class='slogo'><img src="img/blood.png" style='width:0.26rem'></span>血型 <span class='blood'>中国</span></li>
+                <li id='height' ><span class='slogo'><img src="img/height.png" style='width:0.26rem'></span>身高 <span class='height'>171cm</span></li>
+                <li id='weight' ><span class='slogo'><img src="img/weight.png" style='width:0.28rem'></span>体重 <span class='weight'>51kg</span></li>
+                <li id='sexway' ><span class='slogo'><img src="img/sexway.png" style='width:0.30rem'></span>性向 <span class='sexway'>异性恋</span></li>
+                <li id='profession' data-toggle='modal' data-target='#Modal'><span class='slogo'><img src="img/profession.png" style='width:0.28rem'></span>行业 <span class='profession'></span></li>
+                <li id='job' data-toggle='modal' data-target='#Modal'><span class='slogo'><img src="img/job.png" style='width:0.13rem'></span>职业 <span class='job'></span></li>
+            </ul>
+        </div>
+        <div class="evalute">
+            <h3 class="title">好友对TA的评价</h3>
+            <a href="javascript:;" class='go-eva'>
+                <ul>
+                    <li><button class='btn btn-rose'>女神范儿 +13</button></li>
+                    <li><button class='btn btn-rose'>交际花 +13</button></li>
+                    <li><button class='btn btn-rose'>女汉子 +13</button></li>
+                    <li><button class='btn btn-rose'>女神范儿 +13</button></li>
+                    <li><button class='btn btn-rose'>女神范儿 +13</button></li>
+                </ul>
+            </a>
+
+        </div>
+        <div class="hobbys">
+            <h3 class="title">TA的兴趣爱好</h3>
+            <ul class="curhobby">
+                <li data-class='休闲'>
+                    <a href="javascript:;" class='go-hobby'>
+                        <p>休闲 <span>请填写你喜欢的休闲方式</span></p>
+                    </a>
+                </li>
+                <li data-class='宠物'>
+                    <a href="javascript:;" class='go-hobby'>
+                        <p>宠物 <span>请填写你喜欢的宠物</span></p>
+                    </a>
+                </li>
+                <li data-class='音乐'>
+                    <a href="javascript:;" class='go-hobby'>
+                        <p>音乐 <span>请填写你喜欢的音乐类型/乐队/歌手</span></p>
+                    </a>
+                </li>
+                <li data-class='影视'>
+                    <a href="javascript:;" class='go-hobby'>
+                        <p>影视 <span>请填写你喜欢的影视剧演员/导演/演员</span></p>
+                    </a>
+                </li>
+                <li data-class='书籍'>
+                    <a href="javascript:;" class='go-hobby'>
+                        <p>书籍 <span>请填写你喜欢的书籍/作者</span></p>
+                    </a>
+                </li>
+                <li data-class='游戏'>
+                    <a href="javascript:;" class='go-hobby'>
+                        <p>游戏 <span>请填写你喜欢的游戏</span></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="secrets" >
+            <h3 class="title">TA的私密问题 </h3>
+            <ul class="secbox">
+
+
+            </ul>
+        </div>
+    </div>
+    <!--弹幕输入框-->
+    <div class="all_input" style="display: none">
+        <div id='inputbox' class="box">
+            <div class="block">
+                <img src="../meeth5/img/gift.png" alt="" class="gift_click" data-showid="0">
+            </div>
+            <div class="val">
+                <input type="search" autocomplete="off" class="val_put" placeholder="请输入弹幕内容">
+                <p class="gift_text" style="display: none">请选择礼物</p>
+            </div>
+            <div class="block">
+                <img src="../meeth5/img/send_no.png" alt="" class="send">
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <ul>
+        <li><a href="javascript:;" class='meet'>遇见</a></li>
+        <li><a href="javascript:;" class='public'>广场</a></li>
+        <li><a href="javascript:;" class='chat'>聊天</a></li>
+        <li><a href="javascript:;" class='mine'>我</a></li>
+    </ul>
+</footer>
+<script type="text/javascript">
+    var uid='15231069699';
+    var sign='jkjkjkj';
+    new Swiper('.swiper-container', {
+        pagination: ".swiper-pagination",
+        effect: 'left'
+    });
+    render();
+   function render() {
+        $.ajax({
+            url:base()+"api/meetcomments/index",
+            type:"get",
+            data:{
+                uid:uid
+            },
+            dataType:"json",
+            success:function (data) {
+                var arry_all_comments=data.data.comments;
+                var arry_all_gifts=data.data.gifts;
+                if(arry_all_comments.count!=0){
+                    var arry=arry_all_comments.data;
+                    var index=0;
+                    var move_screen=setInterval(function () {
+                        if(arry[index]==undefined){
+                            index=0;
+                        }else{
+                            var str= '<div class="swiper-slide animated fadeInUp">'+
+                                '<div class="ul">'+
+                                '<div class="li">'+
+                                '<img src="" alt="">'+   //+arry[index].avatar+
+                                ' <div class="content">'+
+                                ' <span class="name">'+arry[index].nickname+'</span>'+
+                                ' <span class="colon">:</span>'+
+                                ' <span class="content_bullet">'+uncodeUtf16(arry[index].contents)+'</span>'+
+                                ' </div>'+
+                                ' </div>'+
+                                ' </div>'+
+                                '  </div>';
+                            $(".bullet_screen").append(str);
+                            index++;
+                            if($(".bullet_screen").find(".swiper-slide").length>3) {
+                                var height=$(".bullet_screen").find(".swiper-slide").eq(0).height();
+                                $(".bullet_screen").find(".swiper-slide").eq(0).fadeOut().remove()
+
+                            }
+                        }
+                    },1000);
+                }
+                if(arry_all_gifts.count!=0){
+                        var arry_gift=arry_all_gifts.data;
+                        var index_gift=0;
+                        var timer=setInterval(function () {
+                            if(arry_gift[index_gift]==undefined){
+                                clearInterval(timer);
+                                $(".bullet_gift").html("");
+                            }else{
+                                $(".gift_screen_"+opention).html("");
+                                var str='<div class="gift_li animated fadeInLeft">'+
+                                    '<img src="img/head.jpg" alt="">'+
+                                    '<div class="content">'+
+                                    '<span class="name">'+arry_gift[index_gift].nickname+'</span>'+
+                                    '<span class="colon">:</span>'+
+                                    '<span class="content_bullet">'+arry_gift[index_gift].contents+'</span>'+
+                                    '<div class="gift_img"><img src="'+arry_gift[index_gift].img+'" class="gift"></div>'+
+                                    '</div>'+
+                                    '</div>';
+                                $(".bullet_gift").append(str);
+                                index_gift++;
+                            }
+                        },1500)
+                }
+//                if(arry_all_gifts.count!=0){
+//                    if(move_type){
+//
+//                    }else{
+//                        arry_gift=arry_all_gifts.data;
+//                        index_gift=0;
+//                        timer=setInterval(function () {
+//                            if(arry_gift[index_gift]==undefined){
+//                                clearInterval(timer);
+//                                $(".gift_screen_"+opention).html("");
+//                            }else{
+//                                $(".gift_screen_"+opention).html("");
+//                                var str='<div class="gift_li animated fadeInLeft">'+
+//                                    '<img src="img/head.jpg" alt="">'+
+//                                    '<div class="content">'+
+//                                    '<span class="name">'+arry_gift[index_gift].nickname+'</span>'+
+//                                    '<span class="colon">:</span>'+
+//                                    '<span class="content_bullet">'+arry_gift[index_gift].contents+'</span>'+
+//                                    '<div class="gift_img"><img src="'+arry_gift[index_gift].img+'" class="gift"></div>'+
+//                                    '</div>'+
+//                                    '</div>';
+//                                $(".gift_screen_"+opention).append(str);
+//                                index_gift++;
+//                            }
+//                        },1500)
+//                    }
+//                }
+            }
+        });
+    }
+    function uncodeUtf16(str){
+        var reg = /\&#.*?;/g;
+        var result = str.replace(reg,function(char){
+            var H,L,code;
+            if(char.length == 9 ){
+                code = parseInt(char.match(/[0-9]+/g));
+                H = Math.floor((code-0x10000) / 0x400)+0xD800;
+                L = (code - 0x10000) % 0x400 + 0xDC00;
+                return unescape("%u"+H.toString(16)+"%u"+L.toString(16));
+            }else{
+                return char;
+            }
+        });
+        return result;
+    };
+    var cpLock;
+    $(".val_put").on('compositionstart', function(e) {
+        cpLock = true;
+    });
+    $(".val_put").on('compositionend', function(e) {
+        cpLock = false;
+    });
+    $(document).on('click',".bullet",function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $(".all_input").css({"display":"block"}).find(".val_put").focus();
+        $(".all_input").find(".val_put").addClass("focus");
+        // androidInputBugFix();
+        // $(".all_input");
+    });
+    $(".val_put").on("input",function (e) {
+        if($(this).val()==""){
+            $(".send").attr("src","../meeth5/img/send_no.png");
+            $(".send").parent().removeClass("realy_send");
+        }else{
+            if (!cpLock) {
+                if (e.target.value.length - 40 >=0) {
+                    var txt = $(e.target).val().substring(0, 40);
+                    $(e.target).val(txt);
+                    $(".dialog").text("只能填写40字以内的弹幕哟").show();
+                    setTimeout(function () {
+                        $(".dialog").hide();
+                    },300);
+                }
+            }
+            $(".send").attr("src","../meeth5/img/send.png");
+            $(".send").parent().addClass("realy_send");
+            // var str= utf16toEntities($(this).val());
+            // console.log(str)
+        }
+    });
+    $(".send").parent().on("click",function () {
+        if($(".send").parent().hasClass("realy_send")){
+            // var tel
+            if($(".val_put").val()==""){
+
+            }else{
+                ajax_input_val(utf16toEntities($(".val_put").val()),1,"15231069699");
+                $(".all_input").hide();
+                $(".val_put").val("");
+            }
+        }else{
+            alert("请输入内容后提交")
+        }
+    });
+    $(".val_put").on('keypress',function(e) {
+        var keycode = e.keyCode;
+        var searchName = $(this).val();
+        if(keycode=='13') {
+            e.preventDefault();
+            //请求搜索接口
+            // alert(searchName);
+            if($(".send").parent().hasClass("realy_send")){
+                // var tel
+                ajax_input_val(utf16toEntities($(this).val()),1,"15231069699");
+                $(".all_input").hide();
+                $(this).val("");
+            }else{
+                alert("请输入内容后提交")
+            }
+        }
+    });
+    $(".gift_click").parent().on("click",function () {
+        event.preventDefault();
+        event.stopPropagation();
+        var id=$(".gift_click").attr("data-showid");
+        if(id==0){
+            $(".val_put").val("");
+            $(".gift_click").attr("data-showid",1);
+            $(".val_put").blur().css({"display":"none"});
+            $(".gift_text").show();
+            $(".gift_put").show();
+            $(".gift_click").attr("src","img/info.png");
+            $(".send").attr("src","img/send_no.png");
+            $(".all_input").css({bottom:"5.7rem"})
+        }else{
+            $(".gift_put").hide();
+            $(".swiper-container dl").removeClass("gift_this");
+            $(".send").parent().removeClass("realy_send");
+            $(".send").attr("src","img/send_no.png");
+            $(".gift_click").attr("data-showid",0);
+            $(".gift_text").hide();
+            $(".gift_click").attr("src","img/gift.png");
+            $(".send").attr("src","img/send_no.png");
+            $(".all_input").css({bottom:"0rem"});
+            $(".all_input").css({"display":"block"});
+            $(".val_put").css({"display":"block"}).focus();
+        }
+    });
+    $(".swiper-container").on("click","dl",function () {
+        $(".send").parent().addClass("realy_send");
+        $(".send").attr("src","img/send.png");
+        $("dl").removeClass("gift_this");
+        $(this).addClass("gift_this");
+    });
+    function ajax_input_val(str,is_type,tel) {
+        $.ajax({
+            url:getUrl()+"api/meetcomments/send_comments",
+            type:"post",
+            datatype:"json",
+            data:{
+                is_type:is_type,
+                contents:str,
+                friend_uid:tel
+            },
+            success:function (data) {
+                if(data.status==1){
+                    if(is_type==1){
+                        user_arry.data.contents=str;
+                        arry.splice(index+1,0,user_arry.data);
+                    }else{
+
+                    }
+                }else{
+                    alert(data.msg);
+                }
+            }
+        })
+    }
+    function utf16toEntities(str) { //检测utf16emoji表情 转换为实体字符以供后台存储
+        var patt=/[\ud800-\udbff][\udc00-\udfff]/g;
+        str = str.replace(patt, function(char){
+            var H, L, code;
+            if (char.length===2) {   //辅助平面字符（我们需要做处理的一类）
+                H = char.charCodeAt(0); // 取出高位
+                L = char.charCodeAt(1); // 取出低位
+                code = (H - 0xD800) * 0x400 + 0x10000 + L - 0xDC00; // 转换算法
+                return "&#" + code + ";";
+            } else {
+                return char;
+            }
+        });
+        return str;
+    };
+
+
+</script>
+</body>
+
+
+
+</html>

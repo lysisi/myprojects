@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/material-dashboard.css" />
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/personal.css" />
+	<script type="text/javascript" src='http://qayanyu.wjrmt.cn/data/hobby.js'></script>
+
+	
+</head>
+<body>
+	<div class="wrapper personal_wrapper">
+		<div class="hobbybox">
+			<!-- <div class='newlabel'><a href="javascript:;" class='addhobby'><img src="img/newlabel.png">创建我的标签</a><div class="add" style='display: none'><input type="text" name="" class='form-control'><img src="img/del.png" class='del'></div></div> -->
+			<ul class='hobbylists'>
+				
+			</ul>
+			<button class='btn btn-rose btn-save' style='width: 60%;position: relative;left: 50%;margin-left: -30%;'>保存</button>
+		</div>
+	</div>
+	<footer>
+		<ul>
+			<li><a href="javascript:;" class='meet'>遇见</a></li>
+			<li><a href="javascript:;" class='public'>广场</a></li>
+			<li><a href="javascript:;" class='chat'>聊天</a></li>
+			<li><a href="javascript:;" class='mine'>我</a></li>
+		</ul>
+	</footer>
+	
+</body>
+<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/material.min.js" type="text/javascript"></script>
+<script src="js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="js/nouislider.min.js" type="text/javascript"></script>
+<script src="js/material-dashboard.js"></script>
+<!-- <script src="js/sweetalert2.js"></script> -->
+<!-- <script src="js/LCalendar.min.js"></script> -->
+<script type="text/javascript" src="js/base.js"></script>
+
+<script type="text/javascript">
+	var classes=localStorage.getItem("classes");
+	console.log(classes)
+	var curchoose=JSON.parse(localStorage.getItem("curchoose"));
+	console.log(curchoose);
+	console.log(hobby)
+	var uid='15231069699';
+	var	sign='jkjkjkj';
+	var arr=[];
+	var lists=[];
+	// labelist()
+	// $(".hobbybox .addhobby").click(function(argument) {
+	// 	$(this).css("display","none");
+	// 	$(this).parents(".hobbybox").find(".add").css("display","block").focus();
+	// 	$(this).parents(".hobbybox").find(".btn-save").css("display","block");
+	// });
+	// $(".hobbybox .btn-save").on("touchstart",function(){
+	// 	var curval=$(".hobbybox .add input").val();
+	// 	if(curval==''){
+	// 		$(".hobbybox .add .form-group").addClass("is-focused");
+	// 	}else{
+	// 		arr.push(curval);
+	// 		var con=arr.join(",");
+	// 		$.ajax({
+	// 			type:"post",
+	// 			url:base()+'api/Userinfo/save_tag',
+	// 			dataType:"json",
+	// 			data:{"uid":uid,"sign":sign,"classes":classes,"contents":con},
+	// 			success:function(res){
+	// 				if(res.status=='success'){
+
+	// 					labelist()
+	// 				}
+	// 			}
+	// 		})
+	// 	}
+	// });
+
+	function labelist(){
+		$.ajax({
+			type:"get",
+			url:base()+'api/Userinfo/get_tag',
+			dataType:"json",
+			data:{"uid":uid,"sign":sign,"classes":classes},
+			success:function(res){
+				console.log(res);
+				if(res.status=='success'){
+					var con=res.data[0].contents;
+
+					console.log(con)
+					var str=''
+					for(var i=0;i<con.length;i++){
+						// arr.push(con[i]);
+						str+='<li>'+con[i]+'</li>'
+					};
+					$(".hobbybox ul").html("").append(str)
+				}
+			}
+		})
+	};
+
+	
+
+	for(var i=0;i<hobby.length;i++){
+		var obj=hobby[i];
+		if(obj.category==classes){
+			list=obj.lists;
+			var str='';
+			var curclass="";
+			for(var j=0;j<list.length;j++){
+			    curclass=''
+			    for(var k=0;k<curchoose.length;k++){
+			        if(list[j]==curchoose[k]){
+                      curclass='on';
+					}
+				}
+				str+='<li class='+curclass+'>'+list[j]+'</li>'
+
+			};
+			$(".hobbybox ul").html("").append(str);
+			$(".hobbybox ul li").click(function(){
+				$(this).toggleClass("on");
+			});
+		}
+
+	}
+
+	$(".hobbybox .btn-save").on("touchstart",function(){
+			$(".hobbybox ul li.on").each(function(){
+				var txt=$(this).html();
+				arr.push(txt);
+			})
+			var con=arr.join(",");
+			$.ajax({
+				type:"post",
+				url:base()+'api/Userinfo/save_tag',
+				dataType:"json",
+				data:{"uid":uid,"sign":sign,"classes":classes,"contents":con},
+				success:function(res){
+					if(res.status=='success'){
+						history.go(-1);
+					}
+				}
+			})
+	});
+
+	
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,15 @@
+/*header{height: 0.7rem;background: #3a393e;position: relative;}
+header .title{font-size: 0.34rem;height: 0.7rem;line-height: 0.7rem;color: #fff;text-align: center;}
+header .back{position: absolute;top:50%;left: 0;display: block;font-size: 0.34rem;background: url(../img/back.png) no-repeat center;}*/
+footer{padding:0;position: fixed;bottom: 0;left: 0;width: 100%;background: #fff;}
+footer ul{clear: both;overflow: hidden;width: 100%;border-top:1px solid #ededed;}
+footer ul li{float: left;width: 25%;height: 1.1rem;}
+footer ul li a{display: block;font-size: 0.2rem;line-height: 0.65rem;text-align: center;padding:0.5rem 0 0;box-sizing: border-box;cursor: pointer;}
+footer ul li a.meet{background: url(../img/meet.png) no-repeat center 0.1rem;background-size: 0.56rem;}
+footer ul li.on a.meet{background: url(../img/meeton.png) no-repeat center 0.1rem;background-size: 0.56rem;}
+footer ul li a.public{background: url(../img/public.png) no-repeat center 0.1rem;background-size: 0.47rem;}
+footer ul li.on a.public{background: url(../img/publicon.png) no-repeat center 0.1rem;background-size: 0.47rem;}
+footer ul li a.chat{background: url(../img/chat.png) no-repeat center 0.1rem;background-size: 0.45rem;}
+footer ul li.on a.chat{background: url(../img/chaton.png) no-repeat center 0.1rem;background-size: 0.45rem;}
+footer ul li a.mine{background: url(../img/mine.png) no-repeat center 0.1rem;background-size: 0.45rem;}
+footer ul li.on a.mine{background: url(../img/mineon.png) no-repeat center 0.1rem;background-size: 0.45rem;}

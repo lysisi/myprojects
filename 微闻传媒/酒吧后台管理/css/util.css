@@ -1,0 +1,155 @@
+*{margin:0;padding:0;}
+li{list-style: none}
+p{margin-bottom: 0}
+.radio{margin-top: 15px !important}
+.creat_menu{min-height: 481px;height: 100%}
+.card{margin:0px !important;height: 100%;min-height: 471px;}
+.creat_news .card,.news_history .card{margin:0px !important;height: auto;min-height: 471px;}
+.card .title{position: absolute;top:25px;left: 100px;font-size: 18px;width: 100%;box-sizing: border-box;}
+.card .title p span.del{float: right;margin-right: 120px}
+/*.card .row .btn{margin-left: 15px !important}*/
+.init_mphone{margin-left:37.5%;min-width:280px;}
+.mphone{width:100%;background:#fff;border-radius:6px;box-shadow:0 1px 4px 0 rgba(0,0,0,0.14);padding: 10px;}
+.mphone .phonebg{display: block;width: 100%;height: auto;}
+.mphone .mphonebox{position: relative;}
+.mphone .start{position: absolute;top:0;left: 0;width: 100%;height: 100%}
+.mphone .start .txt{font-size: 20px;color: #666;text-align: center;position: relative;top:50%;margin-top:-60px;padding: 0 10%;width: 100%;line-height: 30px;}
+.mphone .start .point{position: relative;top:50%;left: 50%;width: 80%;margin-left:-40%;margin-top:-30%;}
+.mphone .btnbox{position: absolute;bottom:0px;left: 0px;width: 100%;height: 50px;background:url(../img/key.png) no-repeat 10px 10px #f5f5f5;background-size: 30px auto;padding-left: 50px;box-sizing: border-box;}
+.mphone .btnbox ul{margin:0;padding:0;clear:both;}
+.mphone .btnbox ul li{float: left;width: 100%;position: relative;}
+.mphone .btnbox li .btn{background: #e91e63;width: 100%;margin: 0;padding:0;border-radius: 0;font-size: 12px;height: 100%;line-height:50px;list-style: none;box-sizing: border-box;}
+.mphone .btnbox li .on{background:#f5f5f5;border:1px solid #9c27b0;color: #9c27b0}
+.mphone .btnbox li .new_btn{background:#f5f5f5;color: #666}
+.mphone .btnbox li .subbox{position: absolute;bottom:100%;left: 0;width: 100%}
+.mphone .btnbox li .subbox li{width: 100%;height: 40px;}
+.move{animation:move 0s 5s linear;}
+.menu-content ul{width: 83%}
+.menu-content li{padding:15px;display: none}
+.menu-content li:first-child{display:block;}
+.menu-content li textarea{max-width:100%;}
+.modal .icon{background: linear-gradient(60deg, #ec407a, #d81b60);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);color: #fff; margin: -20px 15px 0;
+    border-radius: 3px;
+    padding: 15px;
+    position: relative;display: inline-block;left: -20px;top:-30px;}
+    .modal .modal-dialog {max-width: 50%;width:50%}
+    .modal .navbar-form{margin:0;}
+.modal .icon i{font-size: 1.3em;line-height: 1.5em;font-weight: 300}
+.modal .icon h4{margin:0;}
+.modal .title{position: absolute;top:25px;left: 100px;font-size: 18px;width: 100%;box-sizing: border-box;}
+.addimgbox{
+	width: 100px;height: 100px;border:1px solid #666;
+	font-size: 40px;text-align: center;line-height: 100px;
+	position: relative;
+}
+.addimgbox img{position: absolute;top:0;left: 0;display: block;width: 100%;height: 100%;z-index: 1}
+.errortip{color: red;font-size: 16px;font-weight: bold;display: none}
+.sort-tip p{font-size: 18px;margin-top: 40px;}
+#inputfile,#otherfile{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 2
+}
+@keyframes move{
+	0%{
+		margin-left:37.5%;
+	}
+	100%{
+		margin-left:0;
+	}
+
+}
+@-webkit-keyframes move{
+	0%{
+		margin-left:37.5%;
+	}
+	100%{
+		margin-left:0;
+	}
+
+}
+@media (max-width:991px){
+	.init_mphone{margin-left:0;width:280px;min-width:280px;margin:0 auto;}
+}
+
+.dragged {
+	  position: absolute;
+	  opacity: 0.5;
+	  z-index: 2000;
+	}
+.first_menu .fli.placeholder,.fli .subbox li.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+.first_menu .fli.placeholder:before,.fli .subbox li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+}
+.creat_news{padding-bottom: 20px;margin-bottom: 20px}
+.news_history table{font-size: 14px;line-height: 28px;font-weight: normal;}
+.news_history table tr{border-bottom:1px solid #ddd;}
+.news_history table tr th{line-height: 35px;font-weight: normal;}
+.news_history table tr td{padding:10px;}
+.news_history .card-content{padding:30px 20px;}
+.news_history .card-content  ul li {margin: 20px 0;}
+.news_history .card-content  ul li img{display: block;width: 170px;height: 70px;float: left;}
+.news_history .card-content ul li p{padding-left: 180px;font-size: 16px;color:#000;}
+.choose-news,.choose-del{height: 30px;line-height: 30px;padding:0 30px !important;}
+#listpage{
+    font-size:14px;color: #73879C;
+    width:auto;margin: 20px 20px 20px 0;
+    float: right;
+}
+#listpage #prePage{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+#listpage #nextPage{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+#listpage a{ color: #73879C !important;cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;}
+#listpage a.current{ background-color: #9c27b0;
+    border-color: #9c27b0;
+    box-shadow: 0 4px 5px 0 rgba(156, 39, 176, 0.14), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(156, 39, 176, 0.2);
+    color: #fff !important;
+}
+.allnews table{font-size: 16px !important;}
+.allnews table th,.allnews table td{font-size: 16px !important;font-weight: normal;}
+.filterbox{clear: both;}
+.filterbox .allselect{float: left;position: relative;z-index: 999}
+.filterbox .allselect button{background: none;outline: none;box-shadow: none;color: #000;border-radius: 0;border-bottom: 1px solid #999}
+.filterbox .allselect button:focus,.filterbox .allselect button:focus,.filterbox .allselect button:active{background: none !important;box-shadow: none;color: #000 !important}
+.filterbox .searchbox{width:200px;float: right;}
+.filterbox .searchbox input{margin-right: 20px;outline: none;border:none;}
+.newstable td img.avatar{display: block;width:56px;height: 56px;}
+.choose .comselect button{background: none;outline: none;box-shadow: none;color: #000;border-radius: 0;border-bottom: 1px solid #999}
+.choose .comselect button:focus,.choose .comselect button:focus,.choose .comselect button:active{background: none !important;box-shadow: none;color: #000 !important}
+.sex .up{width: 0;
+    height: 0;
+    border-top:4px dashed;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    transition: all 0.15s ease-in;margin-left: 5px;position: relative;top:10px;}
+.sex .rotate{
+    transform: rotate(180reg);
+    webkit-transform:rotate(180reg);
+}
+.datatables_length,.dataTables_filter,.datatables_info,.dataTables_paginate {display: none;}

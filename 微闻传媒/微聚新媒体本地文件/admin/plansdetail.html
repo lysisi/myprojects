@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap-switch.css" rel="stylesheet"> -->
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="css/daterangepicker.css" rel="stylesheet">
+    <!-- Switchery -->
+    <!-- <link href="css/switchery.min.css" rel="stylesheet"> -->
+     <!-- iCheck -->
+    <link href="css/green.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    
+</head>
+
+<body class="">
+    <div class="container">
+        <div class="nav-md">
+            <!-- 侧边导航开始 -->
+            <div class='leftnav'>
+              <div class='col-md-3 left_col'>
+                <div class='left_col scroll-view'>
+                  <div class="navbar nav_title" style="border: 0;">
+                    <a href="" class="site_title"><img src="images/logo.png"><span class='ss'>媒体管理平台</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+              <br>
+              <!-- /menu profile quick info -->
+
+              <!-- sidebar menu -->
+              <div id="sidebar-menu" class="">
+                <div class="menu_section">
+                  <div>
+                      <ul class="nav side-menu">
+                        <li>
+                          <a href='javascript:;'><i class="fa fa-home"></i>首页</a>
+                       </li>
+                       <li class='active'>
+                         <a href='javascript:;'><i class="fa fa-home"></i>推广</span></a>
+                     </li>
+                     <li>
+                         <a href='javascript:;'><i class="fa fa-home"></i>财务</span></a>
+                     </li>
+                     <li>
+                         <a href='javascript:;'><i class="fa fa-home"></i>报表</span></a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <!-- /sidebar menu -->
+ </div>
+</div>
+</div>
+<!-- 侧边导航结束 -->
+<!-- header开始 -->
+<div class="top_nav">
+  <div class="nav_menu">
+    <nav>
+      <img src="" class='photo'>
+      <div class="info"><span class="name"></span><span class="curid"></span><span class="fa fa-chevron-down drop-down"></span><span class="ad">广告主</span>
+        <ul class="about dropdown-menu" style="display: none;">
+          <li><a href="javascript:;">资质管理</a></li>
+          <li><a href="javascript:;">修改密码</a></li>
+        </ul>
+      </div>
+      
+      <a href="javascript:;" class="ad_new">新建广告</a>
+    </nav>
+</div>
+</div>
+<!-- header结束 -->
+<!-- 主体内容开始 -->
+<div class="Rcontent">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 ">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>推广计划</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <ul class="pdetail">
+              <li><span class="back fa fa-chevron-circle-left"></span><span class="name"></span><span class="delate">删除</span></li>
+              <li>日预算： <span class="ysuan"></span>元/天 <span class="fa fa-edit drop-down"></span><div class='bjbox dropdown-menu'><input type="text" name=""><span class='fa fa-close'></span><p><a href="javascript:;" class='save'>保存</a><!-- <a href="javascript:;" class='saved'>保存并启用</a> --></p></div></li>
+              <li>操作：<label></label></li>
+              <li>状态：<span class="status"></span></li>
+
+            </ul>
+            <div class="top">
+               <button type="button" class="btn btn-danger ad_del" >删除广告</button>
+
+              <!-- datepicker开始 -->
+                <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;top:0">
+                  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                  <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                </div>
+              <!-- datepicker结束 -->
+
+              <P class='search'><input type="text" name="" placeholder="搜索计划名称/计划ID" id='search'><span class='fa fa-search'></span><span class='searchbtn'></span></P>
+              
+            </div>
+            <table id="datatable" class="table  jambo_table bulk_action">
+              <thead>
+                <tr class="headings">
+                  <th>
+                    <input type="checkbox" id="check-all" class="flat">
+                  </th>
+                  <th>广告名称</th>
+                  <th>曝光量（次）</th>
+                  <th>点击量（次）</th>
+                  <th>点击率</th>
+                  <th>消耗金额（元）</th>
+                  <th>出价（元）</th>
+                  <th>广告状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+
+
+              <tbody>
+              
+              </tbody>
+            </table>
+           
+            <div class="detailcont" data-type='0' >
+              <div class="col-md-6 col-sm-6 col-xs-12 adleft">
+                <p class='adtop'>广告详情 <span class="btn bjbtn" data-id=''>编辑</span><span class="btn delbtn">删除</span></p>
+                <div style="position: relative;">
+                  <div class='showimg'>
+                    <ul>
+                      <!-- <li><img src=""></li> -->
+                    </ul>
+                    <p class="ad_title"></p>
+                  </div>
+                  <ul class="adlists">
+                    <li><span class="title">广告名称</span> <span class='con name'>咖啡三图</span><!-- <span class="fa fa-edit drop-down"> --></span><div class='bjbox dropdown-menu'><input type="text" name=""><span class='fa fa-close'></span><p><a href="javascript:;" class='save'>保存</a><a href="javascript:;" class='saved'>保存并启用</a></p></div></li>
+                    <li><span class="title">广告ID</span> <span class='con adID'>20171114</span></li>
+                    <li><span class="title">投放周期</span> <span class="fa fa-calendar"></span><span class='con period'><span>2017/11/15--2017/11/18</span><!-- <i class="fa fa-edit"></i> --></span></li>
+                    <li><span class="title">投放渠道</span> <span class='con way'>三图广告</span></li>
+                    <li><span class="title">广告出价</span> <span class="con money">CPM 0.5</span><!-- <span class="fa fa-edit drop-down"></span> --><div class='bjbox dropdown-menu'><select><option>CPM</option><option>CPC</option></select><input type="text" name="" class="adinput"><label>元/M</label><span class='fa fa-close'></span><p><a href="javascript:;" class='save'>保存</a><a href="javascript:;" class='saved'>保存并启用</a></p></div></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 adright">
+                <div class="x_panel" style="padding-top:10px">
+                    <p style="font-size: 20px">效果走势</p>
+                    <select class='trendClass'>
+                      <option value="1">曝光量</option>
+                      <option value="2">点击量（次）</option>
+                      <option value="3">点击率</option>
+                    </select>
+                    <div class="clearfix"></div>
+                  <div class="x_content">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="page"></div>
+          </div>
+
+        </div>
+        
+      </div>
+
+      <div class="pop pop-info">
+        <p class="title">注意</p>
+        <div class="con"><p>
+          <span class='fa fa-warning'></span><span class="cont"><!-- 广告投放中<br>请先暂停广告，再进行编辑或删除 --></span>
+        </p><p class="btnbox"><span class="btn btn-success">我知道了</span></p></div>
+        
+      </div>
+      <div class="pop pop-del">
+        <p class="title">确认删除</p>
+        <div class="con"><p>
+          <span class='fa fa-warning'></span>删除操作不可撤回！<br>请谨慎操作！
+        </p><p class="btnbox"><span class="btn btn-success">取消</span><span class="btn btn-danger">确认删除</span></p></div>
+        
+      </div>
+
+      
+     
+
+    </div>
+    <div class="iframebox">
+      <iframe src="" scrolling="no" width="100%" height="100%"></iframe>
+    </div> 
+              
+</div>
+
+<!-- 主体内容结束 -->
+</div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-switch.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+<!-- Switchery -->
+<script src="js/switchery.min.js"></script>
+<!-- iCheck -->
+<script src="js/icheck.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/paging.js"></script>
+<script src="js/mSlider.js"></script>
+<script src="js/base.js"></script>
+<script type="text/javascript">
+  
+ $(function () {
+  $("[name='mycheckbox']").bootstrapSwitch({
+    onText:'',  
+    offText:''
+  });
+  init_daterangepicker("#reportrange");
+  // init_daterangepicker(".period");
+  //广告弹层
+  var _right = new mSlider({
+      dom: ".iframebox",
+      direction: "right"
+  });
+
+  $(".ad_new").click(function(){
+    $(".iframebox iframe").attr('src','http://adm-dsp.wjrmt.cn/ads/')
+    
+    _right.open()
+  
+  });
+  
+  
+
+  
+
+ 
+
+  // popfn(".delbtn",".pop-del");
+
+
+
+  var detail={
+    init:function(){
+      this.planInfo='';
+      this.total='';
+      this.pageSize="";
+      this.id='';
+      this.plan_id="";
+      this.endTime='';
+      this.startTime='';
+      this.flag=true;
+      this.trendData=[];//走势图纵轴数据
+      this.Daterange=[];//走势图横轴日期
+      this.ad_id='';
+      this.pagelist();
+      this.filterList();
+      this.dropDown();
+      this.delete_plan();
+      this.delete_ad();
+      this.bjplan();
+      this.deltype='';
+      this.inputChange();
+      this.addnewPlan();
+    },
+   inputChange:function(){
+     // $("input[name='name']").bind('input propertychange',function(){
+     //   var curval=$(this).val();
+     //   var reg=/^[A-Za-z0-9\\u4e00-\u9fa5]+$/;
+     //  var cur= reg.test(curval);
+     //   if(curval.length>15){
+     //     alert("15字以内，不能包含特殊字符！");
+     //     $(this).val("");
+     //   }
+     // });
+      $("input[name='name']").change(function(){
+        var curval=$(this).val();
+        var reg=/^[A-Za-z0-9\\u4e00-\u9fa5]+$/;
+         var cur= reg.test(curval);
+         if(cur==false){
+           alert("15字以内，不能包含特殊字符！");
+           $(this).val("");
+         }
+      });
+     $("input[name='ysuan']").change(function(){
+       var curval=parseInt($(this).val());
+      if(curval<100||curval>1000000){
+       alert("预算在100~1000000以内");
+       $(this).val("")
+      }
+     });
+
+
+   },
+    pagelist:function(){
+      var that = this;
+      that.adlist(1,that.id,that.startTime,that.endTime);
+      that.ajaxPage();
+    },
+    adlist:function(page,id,startTime,endTime){
+      var that=this;
+      // var plan_id=localStorage.getItem('plan_id');
+     var Url= window.location.search;
+     that.plan_id=Url.substring(1).split("=")[1]
+      $.ajax({
+        type:"get",
+        url:getUrl()+'/plans/adslist?primary_key=plan_id|'+that.plan_id,
+        dataType:"json",
+        data:{"index_page":page,"name_or_id":id,"start_time":startTime,"end_time":endTime},
+        async:false,
+        success:function(data){
+          if(data.status==true){
+            console.log(1,data)
+            var adData=data.data;
+            that.total=data.count;
+            that.pageSize=data.pageSize;
+            that.planInfo=data.plan_info;
+            var str='';
+            var handle=''
+            for(var i=0;i<adData.length;i++){
+              var obj=adData[i];
+              if(obj.status=='3'){
+                var statustxt='暂停';
+                var choose='unchecked';
+                handle='<input type="checkbox" class="js-switch" '+choose+' data-switchery="true" style="display: none;">'
+              }else if(obj.status=='1'){
+                var statustxt='投放中';
+                var choose='Checked';
+                handle='<input type="checkbox" class="js-switch" '+choose+' data-switchery="true" style="display: none;">'
+              }else if(obj.status=='0'){
+                var statustxt='待审核';
+                handle='<span class="line"></span>'
+              }else if(obj.status=='2'){
+                var statustxt='<span class="ad_out">未过审 <i class="fa fa-question-circle"></i></span><ul class="out_tip"><li>'+obj.reason+'</li></ul>';
+                handle='<span class="btn bjbtn" data-id='+obj.ad_id+'>重新编辑</span>'
+              }else if(obj.status=='4'){
+                var statustxt='待投放';
+                var choose='Checked';
+                 handle='<input type="checkbox" class="js-switch" '+choose+' data-switchery="true" style="display: none;">'
+              }else if(obj.status=='5'){
+                var statustxt='投放结束';
+                handle='<span class="line"></span>'
+              }
+              var clickrate=(obj.clicknum)/(obj.shownum);
+              clickrate=clickrate.toFixed(2);
+
+              var shownum=obj.shownum;
+              var clicknum=obj.clicknum;
+              var charging=obj.charging;
+
+              if(obj.shownum==null){
+                shownum='/'
+              }
+              if(obj.clicknum==null){
+                clicknum='/'
+              }
+              if(obj.charging==null){
+                charging='/'
+              }
+              if(obj.shownum==null||obj.clicknum==null){
+                clickrate='/'
+              };
+
+
+
+              str+='<tr data-id='+obj.ad_id+'>'+
+                  '<td class="a-center ">'+
+                      '<input type="checkbox" class="flat" name="table_records">'+
+                    '</td>'+
+                  '<td class="planname" data-id='+obj.ad_id+'><a href="javascript:;">'+obj.ad_name+'</a></td>'+
+                  '<td>'+shownum+'</td>'+
+                  '<td>'+clicknum+'</td>'+
+                  '<td>'+clickrate+'</td>'+
+                  '<td>'+charging+'</td>'+
+                  '<td class="ysuan">'+obj.bid_per+'</td>'+
+                  '<td class="status" data-type='+obj.status+'>'+statustxt+'</td>'+
+                  '<td><label>'+handle+'</label></td>'+
+                '</tr>';
+            };
+            $("#datatable tbody").html("");
+            $("#datatable tbody").append(str);
+
+            $(".ad_out").hover(function(){
+              $(".out_tip").fadeIn(300)
+            },function(){
+               $(".out_tip").fadeOut(300)
+            });
+            that.topInfo();
+            that.swith();
+            that.change_ad_type();
+            that.ad_trend();
+            $('tbody input.flat').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+
+          }
+
+        }
+      })
+    },
+    ajaxPage:function(){
+      var that = this;
+      var maxPage=Math.ceil(that.total/that.pageSize);
+      console.log(maxPage)
+      //分页
+      $("#page").paging({
+        pageNo:1,
+        totalPage: maxPage,
+        totalSize: that.total,
+        callback: function(num) {
+          that.adlist(num,that.id,that.startTime,that.endTime);
+
+        }
+      });
+    },
+    filterList:function(){
+      var that = this;
+      //id搜索
+      $("#search").bind('keypress',function(){
+
+        if(event.keyCode==13){
+          var searchval=$(this).val();
+          that.id=searchval;
+          that.pagelist()
+        }
+      });
+      //时间段筛选
+      $(".range_inputs .applyBtn").click(function(){
+        that.startTime=$(".calendar input[name='daterangepicker_start']").val();
+        that.startTime=new Date(that.startTime).getTime()/1000
+        that.endTime=$(".calendar input[name='daterangepicker_end']").val();
+        that.endTime=new Date(that.endTime).getTime()/1000
+        // that.planlist(1,"",that.startTime,that.endTime)
+        that.pagelist()
+      })
+    },
+
+    swith:function(){
+      if ($(".js-switch")[0]) {
+          var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+          elems.forEach(function (html) {
+              var switchery = new Switchery(html, {
+                  color: '#26B99A'
+              });
+          });
+      }
+    },
+    topInfo:function(){
+      var that = this;
+      $(".pdetail .name").html(that.planInfo.plan_name)
+      $(".pdetail .ysuan").html(that.planInfo.budget);
+      $(".pdetail").attr("data-type",that.planInfo.flag);
+      $(".pdetail").attr("data-id",that.planInfo.plan_id);
+      if(that.planInfo.flag==0){
+        var txt='暂停';
+        var choose='unchecked'
+      }else{
+        var txt ='投放中';
+        var choose='checked'
+      }
+      $(".pdetail .status").html(txt);
+      $(".pdetail label").html("");
+      $(".pdetail label").append('<input type="checkbox" class="js-switch" '+choose+' data-switchery="true" style="display: none;">')
+
+    },
+    dropDown:function(){
+      $(".drop-down").click(function(){
+        var type=$(this).parents(".pdetail").attr("data-type");
+          if(type==1){
+            $(".pop-info").find(".cont").html("计划投放中<br>请先暂停计划，再进行编辑或删除")
+            $(".pop-info").fadeIn(300);
+            return;
+          }
+        $(this).next(".dropdown-menu").slideToggle(300)
+      });
+      $(".bjbox .fa-close").click(function(){
+        $(this).parents(".bjbox").slideUp(300)
+      });
+    },
+    bjplan:function(){
+
+      //编辑计划名称等
+      changefun(".save");
+      changefun(".saved");
+      function changefun(item){
+        $(item).click(function(){
+          var that=this;
+          var obj =$(this).parents(".pdetail");
+          var plan_id =obj.attr("data-id");
+          console.log(plan_id)
+          var txt = $(this).parents(".dropdown-menu").find("input").val();
+    
+          var curkey='budget';
+          console.log(curkey);
+
+          var saveData={};
+          saveData[curkey]=txt;
+          saveData['primary_key']='plan_id|'+plan_id;
+          var savedData={};
+          savedData[curkey]=txt;
+          savedData['primary_key']='plan_id|'+plan_id;
+          savedData['flag']=1
+          
+
+          if(item=='.save'){
+            $.ajax({
+              type:"post",
+              url:getUrl()+'/plans/edit',
+              dataType:"json",
+              data:saveData,
+              success:function(data){
+                if(data.status==true){
+                  $(that).parents(".dropdown-menu").slideUp(300);
+                  window.location.reload(true);
+                }
+              }
+            })
+          }else if(item=='.saved'){
+            $.ajax({
+              type:"post",
+              url:getUrl()+'/plans/edit',
+              dataType:"json",
+              data:savedData,
+              success:function(data){
+               if(data.status==true){
+                  $(that).parents(".dropdown-menu").slideUp(300);
+                  window.location.reload(true);
+                }
+              }
+            })
+          }
+
+          
+        })
+      };
+
+      //修改计划状态;
+     
+      if(this.flag==true){
+         var th =this;
+        $(".pdetail .switchery").click(function(){
+          console.log(th.flag)
+          th.flag=false;
+          var that = this;
+          var planId=$(that).parents(".pdetail").attr("data-id");
+          var type=$(that).parents(".pdetail").attr("data-type");
+          if(type==1){
+            type=0
+          }else if(type==0){
+            type=1;
+            return false;
+          }
+          $.ajax({
+            type:"post",
+            url:getUrl()+'/plans/ajax_change_flag',
+            dataType:"json",
+            async:false,
+            data:{"primary_key":'plan_id|'+planId,"flag":type},
+            success:function(data){
+              if(data.status==true){
+                var obj=$(that).parents(".pdetail");
+                obj.attr("data-type",type);
+                if(type==0){
+                  $(that).parents(".pdetail").find(".status").html("暂停")
+                }else if(type==1){
+                  $(that).parents(".pdetail").find(".status").html("启用中")
+                };
+                th.flag=true;
+                window.location.reload(true);
+              }
+
+            }
+          })
+        });
+      }
+
+    },
+    change_ad_type:function(){
+      //修改广告状态;
+      var th=this;
+        $("#datatable .switchery").click(function(){
+          var that = this;
+          var adId=$(that).parents("tr").attr("data-id");
+          var type=$(that).parents("tr").find(".status").attr("data-type");
+          var txt=$(that).parents("tr").find(".status").text();
+          console.log(adId,type);
+          var status='';
+          if(type==1||type==4){
+            status=3
+          }else if(type==3){
+            status=1
+          }
+
+          $.ajax({
+            type:"get",
+            url:getUrl()+'/ads/changestatus',
+            dataType:"json",
+            async:false,
+            data:{"ad_id":adId,"status":status,"plan_id":th.plan_id},
+            success:function(data){
+              console.log(10,data)
+              if(data.status==true){
+                var obj=$(that).parents("tr").find(".status");
+                if(data.data=='待投放'){
+                  obj.attr("data-type",4);
+                  obj.html("待投放");
+                  return;
+                }else{
+                  obj.attr("data-type",status);
+                  if(status==3){
+                    $(that).parents("tr").find(".status").html("暂停")
+                  }else{
+                    $(that).parents("tr").find(".status").html("投放中")
+                  }
+                }
+                
+                
+                th.flag=true;
+              }
+
+            }
+          });
+
+        });
+    },
+    delete_plan:function(){
+      var that=this;
+
+      $(".pdetail .delate").click(function(){
+        var type=$(this).parents(".pdetail").attr("data-type");
+         that.plan_id=$(this).parents(".pdetail").attr("data-id");
+        if(type==1){
+          if($(".pop-info").attr('display')=='block'){
+            return;
+          }else{
+            $(".pop-info").find(".cont").html("计划投放中<br>请先暂停计划，再进行编辑或删除")
+            $(".pop-info").fadeIn(300);
+          }
+        }else{
+          if($(".pop-del").attr('display')=='block'){
+            return;
+          }else{
+            $(".pop-del").fadeIn(300);
+            that.deltype='plan';
+            $(".pop-del .btn-danger").click(function(){
+              if(that.deltype=='plan'){
+                $.ajax({
+                    type:"post",
+                    url:getUrl()+'/plans/delete',
+                    dataType:"json",
+                    data:{'primary_key':'plan_id|'+that.plan_id},
+                    success:function(data){
+                      if(data.status==true){
+                        window.location.href='plans.html'
+                      }
+                    }
+                  })
+              }
+              
+            });
+          }
+        }
+      });
+
+
+      $(".pdetail .back").click(function(){
+        window.location.href='plans.html'
+      })
+    },
+    delete_ad:function(){
+      var that =this;
+      $(".pop-del .btn-danger").click(function(){
+        var ad=that.ad_id;
+        if(that.deltype=='ad'){
+          $.ajax({
+              type:"get",
+              url:getUrl()+'/ads/delete?ad_id='+ad,
+              success:function(data){
+                console.log(data)
+                if(data.status==true){
+                  $(that).parents(".dropdown-menu").slideUp(300);
+                  window.location.reload(true);
+                }
+              }
+            })
+        }
+        
+      });
+
+
+      $(".ad_del").click(function(){
+        var ad='';
+        $("tbody tr").each(function(i,item){
+          var len=parseInt($("tbody tr").length);
+          var oncheck = $(item).find(".icheckbox_flat-green").hasClass("checked");
+          if(oncheck==true){
+            
+            var status=$(item).find(".status").attr("data-type");
+            console.log(status)
+            if(status==1||status==4){
+              $(".pop-info").find(".cont").html("请先暂停广告，再进行编辑或删除")
+              $(".pop-info").fadeIn(300);
+              return false;
+              
+            }else{
+             var data_id=parseInt($(item).attr("data-id"));
+             ad=ad+data_id+',';
+               
+
+            };
+            
+            
+          };
+        });
+        if(ad==''){
+          return false;
+        }else{
+          $.ajax({
+              type:"get",
+              url:getUrl()+'/ads/delete?ad_id='+ad,
+              success:function(data){
+                console.log(data)
+                if(data.status==true){
+                  $(that).parents(".dropdown-menu").slideUp(300);
+                  window.location.reload(true);
+                }
+              }
+          })
+        }
+        
+        
+
+      });
+
+    },
+    bjad:function(){
+      var that = this;
+      console.log(2,that.ad_id);
+      $.ajax({
+        type:"post",
+        url:getUrl()+'/plans/get_one',
+        dataType:"json",
+        async:false,
+        data:{"primary_key":'ad_id|'+that.ad_id},
+        success:function(data){
+          console.log(9,data);
+          if(data.status==true){
+            var ad_data=data.data;
+            $(".adleft .showimg ul").html("");
+            $(".adlists .name").html(ad_data.ad_name);
+            $(".adlists .adID").html(ad_data.ad_id);
+            $(".adlists .period").html(ad_data.ad_starttime+'-'+ad_data.ad_endtime);
+            if(ad_data.bid_type==1){
+                $(".adlists .money").html('CPC &nbsp;&nbsp;&nbsp;&nbsp; '+ad_data.bid_per+'元/点击')
+              }else if(ad_data.bid_type==2){
+                $(".adlists .money").html('CPM  &nbsp;&nbsp;&nbsp;&nbsp;'+ad_data.bid_per+'元/千次曝光')
+              }
+            if(ad_data.ad_places_id==1){
+              $(".adlists .way").html('单图广告');
+              var ad_img=ad_data.contents;
+              $(".adleft .showimg ul").append("<li><img src="+ad_img+" /></li>")
+            }else if(ad_data.ad_places_id==3){
+              $(".adlists .way").html('图文广告');
+              var ad_img=JSON.parse(ad_data.contents);
+              console.log(10,ad_img)
+              $(".adleft .showimg ul").append("<li><img src="+ad_img.banner+" /></li><li><img src="+ad_img.contents+" /></li>")
+            }else if(ad_data.ad_places_id==2){
+              $(".adlists .way").html('三图广告');
+              var ad_img=ad_data.contents;
+              ad_img=ad_img.split(",");
+              // console.log(99,ad_img);
+              var str=''
+              for(var i=0;i<ad_img.length;i++){
+                str+='<li><img src='+ad_img[i]+' /></li>'
+              }
+              $(".adleft .showimg ul").append(str);
+            };
+
+            $(".ad_title").html(ad_data.desc)
+            
+            
+           
+          }
+        }
+      });
+      $(".detailcont .bjbtn").click(function(){
+        var type=$(this).parents(".detailcont").attr("data-type");
+         var ad_id=$(this).attr("data-id");
+        if(type==1||type==4){
+          if($(".pop-info").attr('display')=='block'){
+            return false; 
+          }else{
+            $(".pop-info").find(".cont").html("广告投放中<br>请先暂停广告，再进行编辑或删除")
+            $(".pop-info").fadeIn(300);
+            return false;
+          }
+        }else{
+          $(".iframebox iframe").attr('src',getUrl()+'/ads/modify?ad_id='+ad_id)
+                
+              _right.open()
+        }
+      });
+      $("tr .bjbtn").click(function(){
+       var ad_id=$(this).attr("data-id");
+          $(".iframebox iframe").attr('src',getUrl()+'/ads/modify?ad_id='+ad_id)
+                
+              _right.open()
+      });
+      $(".delbtn").click(function(){
+        var type=$(this).parents(".detailcont").attr("data-type");
+         var ad_id=$(this).attr("data-id");
+        if(type==1||type==4){
+          if($(".pop-info").attr('display')=='block'){
+            return;
+          }else{
+            $(".pop-info").find(".cont").html("广告投放中<br>请先暂停广告，再进行编辑或删除")
+            $(".pop-info").fadeIn(300);
+          }
+        }else{
+          if($(".pop-del").attr('display')=='block'){
+            return;
+          }else{
+            $(".pop-del").fadeIn(300);
+            that.deltype='ad';
+          }
+        }
+      });
+
+      var obj=$(".iframeContent").contents().find(".top-title .btn-danger");
+
+      $(obj).click(function(){
+        alert(111)
+        _right.close();
+      })
+
+
+
+
+    },
+    ad_trend:function(){
+      var that = this;
+      //广告选中状态
+      $("tbody .planname").click(function(){
+       $()
+        var shownum=[],clicknum=[],clickrate=[],daterange=[],newDaterange=[];
+        $(this).parents("tr").toggleClass("on").siblings("tr").removeClass("on");
+        var ad_type=$(this).parents("tr").find(".status").attr("data-type");
+        var ad_id=$(this).attr("data-id");
+        if(that.ad_id==ad_id){
+          if(!$(this).parents("tr").hasClass("on")){
+            $(".contr").hide();
+            return false;
+          }else{
+            $(".contr").show()
+            return false;
+          }
+          
+        }else{
+          that.ad_id=ad_id;
+        }
+        
+        $(".detailcont").attr("data-type",ad_type);
+
+
+        // $(".detailcont").show();
+        var obj=$(".detailcont");
+        $(".contr").remove();
+        $(this).parents("tr").after("<tr class='contr'><td colspan='9'></td></tr>");
+          
+          
+         obj.appendTo('.contr td').show()
+         
+         $('.adtop .bjbtn').hide();
+         if(ad_type==4||ad_type==1||ad_type==3||ad_type==2){
+           $('.adtop .bjbtn').attr("data-id",ad_id)
+          $('.adtop .bjbtn').show()
+         }
+
+        $.ajax({
+          type:"post",
+          url:getUrl()+'/plans/ads_trend',
+          dataType:"json",
+          async:false,
+          data:{"primary_key":'ad_id|'+that.ad_id},
+          success:function(data){
+            console.log(3,data.data);
+            if(data.data.length==0){
+              that.trendData=shownum;
+              that.Daterange=daterange;
+              lineTrend();
+              return false;
+            }
+           
+            for(var i=0;i<data.data.length;i++){
+              var obj=data.data[i];
+              var rate=((obj.clicknum)/(obj.shownum)).toFixed(2)
+              shownum.push(obj.shownum);
+              clicknum.push(obj.clicknum);
+              clickrate.push(rate);
+              daterange.push(obj.datetime);
+
+            };
+            daterange.sort(sortNum);
+
+            that.trendData=shownum;
+            that.Daterange=daterange;
+            lineTrend();
+
+            $(".trendClass").change(function(){
+              var trendType=$(this).val();
+              if(trendType=='1'){
+                 console.log(trendType)
+                that.trendData=shownum
+              }else if(trendType=='2'){
+                console.log(trendType)
+                that.trendData=clicknum
+              }else if(trendType=='3'){
+                that.trendData=clickrate
+              };
+              console.log(0,that.trendData)
+              lineTrend()
+            });
+
+
+          }
+        });
+
+        function sortNum(a,b){
+          return a-b
+        };
+
+
+        function lineTrend(){
+          // Line chart
+           
+          if ($('#lineChart').length ){ 
+            Chart.defaults.global.legend = {
+              enabled: false
+            };
+            var ctx = document.getElementById("lineChart");
+            var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: that.Daterange,
+              datasets: [{
+              label: "Advertisement Trends",
+              backgroundColor: "rgba(38, 185, 154, 0.31)",
+              borderColor: "rgba(38, 185, 154, 0.7)",
+              pointBorderColor: "rgba(38, 185, 154, 0.7)",
+              pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+              pointHoverBackgroundColor: "#fff",
+              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointBorderWidth: 1,
+              data: that.trendData
+              }]
+            },
+            });
+          
+          };
+        };
+
+        that.bjad();
+      });
+      
+      
+    },
+    addnewPlan:function(){
+      $.ajax({
+        type:"post",
+        url:getUrl()+'/plans/get_target_features_type',
+        dataType:"JSON",
+        success:function(data){
+          // console.log(11,data.target_features_type);
+          var type=data.target_features_type
+          $(".classes ul").html("");
+          for(var i=0;i<type.length;i++){
+            var strli='<li class="radio"><input type="radio" name="1" class="flat" data-type='+type[i].id+' >'+type[i].name+'</li>';
+            $(".classes ul").append(strli);
+          }
+        }
+      })
+
+      $(".addplan .btn-success").click(function(){
+        var planname='';
+        var ysuan='';
+        var radioType='';
+        
+        $(".addplan input[type='text']").each(function(i,item){
+          var len=$(".addplan input[type='text']").length;
+          if($(this).val()==""){
+            var txt = $(this).attr("name");
+           alert(txt+"不能为空");
+            return
+          };
+
+          if(i==len-1){
+            //  planname=$(".addplan input[name='name']").val();
+            // if(planname.length>15){
+            //   alert("15字以内，不能包含特殊字符！")
+            // }
+             ysuan=$(".addplan input[name='ysuan']").val();
+             if(parseInt(ysuan)>1000000||parseInt(ysuan)<100){
+              alert("预算在100~1000000以内");
+              return false;
+             }
+          }
+
+          
+
+        });
+        var radion=$(".addplan input[type='radio']:checked").val();
+
+        if (radion==null) {
+          alert('请选择推广标的物类型！');
+          return
+        }else{
+           radioType=$(".addplan input[type='radio']:checked").attr('data-type');
+           console.log(radioType)
+        }
+        
+
+        $.ajax({
+          type:"post",
+          url:getUrl()+'/plans/add',
+          dataType:"json",
+          async:false,
+          data:{'plan_name':planname,"budget":ysuan,'target_features_type':radioType},
+          success:function(data){
+            if(data.status==true){
+              $(".addplan .btn-success").attr("data-dismiss",'modal');
+                window.location.reload(true);
+              
+            }
+            
+          }
+        })
+      });
+
+        
+     
+    },
+
+
+  };
+  detail.init();
+
+ });
+
+</script>
+</body>
+</html>

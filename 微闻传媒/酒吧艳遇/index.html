@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>个人中心</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/material-dashboard.css" />
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/LCalendar.min.css" />
+	<link rel="stylesheet" href="css/iosSelect.css" />
+	<link rel="stylesheet" href="css/personal.css" />
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/material.min.js" type="text/javascript"></script>
+	<script src="js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+
+	<script src="js/LCalendar.min.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+	<script type="text/javascript" src="js/picker.min.js"></script>
+	<script src="js/material-dashboard.js"></script>
+	<script src="js/iosSelect.js"></script>
+	<script type="text/javascript" src="js/test.js"></script>
+	<script type="text/javascript" src="js/personal.js"></script>
+	
+</head>
+<body>
+	<div class="personal_wrapper" style='padding-bottom: 2.1rem'>
+
+		 <input name="userfile" type="file" accept="image/*" id="images" style="display: none"/>
+
+		<ul class='photos'>
+			<li data-num="1" class=' cover'><img src="img/photo.jpg"><span>封面</span></li>
+			<li data-num="2" style='' class=''><img src="img/photo1.jpg"></li>
+			<li data-num="3" class=''><img src=""></li>
+			<li data-num="4" style='margin-left: 0' class=''><img src=""></li>
+			<li data-num="5" class=''><img src=""></li>
+			<li data-num="6" class=''><img src=""></li>
+		</ul>
+		<div class="personal-infor">
+			<div class="inforlists">
+				<h3 class='title'>基本信息</h3>
+				<ul>
+					<li id='avatar'><span class='slogo'><img src="img/headphoto.png" style='width:0.23rem'></span>头像 <img class='headphoto' src='' /></li>
+					<li id='nicheng'><span class='slogo'><img src="img/nicheng.png" style='width:0.22rem'></span>昵称 <span class='nicheng'>hahahh</span></li>
+					<li id='sexy' ><span class='slogo'><img src="img/sexy.png" style='width:0.32rem'></span>性别 <span class='sexy'>女</span></li>
+					<li id='three' ><span class='slogo'><img src="img/sexy.png" style='width:0.32rem'></span>三维 <span class='three'>女</span></li>
+					<li id='birthday' ><span class='slogo'><img src="img/birthday.png" style='width:0.34rem'></span>生日 <span class='birthday'></span></li>
+					<!-- <li id='hometown'><span class='slogo'><img src="img/hometown.png" style='width:0.33rem'></span>家乡 <span class='hometown'>中国</span></li> -->
+					<li id='blood' ><span class='slogo'><img src="img/blood.png" style='width:0.26rem'></span>血型 <span class='blood'>中国</span></li>
+					<li id='height' ><span class='slogo'><img src="img/height.png" style='width:0.26rem'></span>身高 <span class='height'>171cm</span></li>
+					<li id='weight' ><span class='slogo'><img src="img/weight.png" style='width:0.28rem'></span>体重 <span class='weight'>51kg</span></li>
+					<li id='sexway' ><span class='slogo'><img src="img/sexway.png" style='width:0.30rem'></span>性向 <span class='sexway'>异性恋</span></li>
+					<li id='profession' data-toggle='modal' data-target='#Modal'><span class='slogo'><img src="img/profession.png" style='width:0.28rem'></span>行业 <span class='profession'></span></li>
+					<li id='job' data-toggle='modal' data-target='#Modal'><span class='slogo'><img src="img/job.png" style='width:0.13rem'></span>职业 <span class='job'></span></li>
+				</ul>
+			</div>
+			<div class="evalute">
+				<h3 class="title">好友对TA的评价</h3>
+				<a href="javascript:;" class='go-eva'>
+					<ul>
+						<li><button class='btn btn-rose'>女神范儿 +13</button></li>
+						<li><button class='btn btn-rose'>交际花 +13</button></li>
+						<li><button class='btn btn-rose'>女汉子 +13</button></li>
+						<li><button class='btn btn-rose'>女神范儿 +13</button></li>
+						<li><button class='btn btn-rose'>女神范儿 +13</button></li>
+					</ul>
+				</a>
+
+			</div>
+			<div class="hobbys">
+				<h3 class="title">TA的兴趣爱好</h3>
+				<ul>
+					<li data-class='休闲'>
+						<a href="javascript:;" class='go-hobby'>
+							<p>休闲 <span>请填写你喜欢的休闲方式</span></p>
+						</a>
+					</li>
+					<li data-class='宠物'>
+						<a href="javascript:;" class='go-hobby'>
+							<p>宠物 <span>请填写你喜欢的宠物</span></p>
+						</a>
+					</li>
+					<li data-class='音乐'>
+						<a href="javascript:;" class='go-hobby'>
+							<p>音乐 <span>请填写你喜欢的音乐类型/乐队/歌手</span></p>
+						</a>
+					</li>
+					<li data-class='影视'>
+						<a href="javascript:;" class='go-hobby'>
+							<p>影视 <span>请填写你喜欢的影视剧演员/导演/演员</span></p>
+						</a>
+					</li>
+					<li data-class='书籍'>
+						<a href="javascript:;" class='go-hobby'>
+							<p>书籍 <span>请填写你喜欢的书籍/作者</span></p>
+						</a>
+					</li>
+					<li data-class='游戏'>
+						<a href="javascript:;" class='go-hobby'>
+							<p>游戏 <span>请填写你喜欢的游戏</span></p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="secrets">
+				<h3 class="title">TA的私密问题 <span>陌生人查看每一个问题的答案需支付1币，同时你将获得0.5币奖励</span></h3>
+				<a class="add" href="javascript:;" data-toggle='modal' data-target='#Modal'>
+					添加私密问题
+				</a>
+				<ul class="secbox">
+					
+					
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+	<footer>
+		<ul>
+			<li><a href="javascript:;" class='meet'>遇见</a></li>
+			<li><a href="javascript:;" class='public'>广场</a></li>
+			<li><a href="javascript:;" class='chat'>聊天</a></li>
+			<li><a href="javascript:;" class='mine'>我</a></li>
+		</ul>
+	</footer>
+	 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	       <div class="modal-dialog modal-notice">
+	           <div class="modal-content">
+	           		<div class="modal-body"></div>
+	           </div>
+	       </div>
+	   </div>
+	   <div class="layercontainer"></div>
+	  
+</body>
+
+
+
+</html>

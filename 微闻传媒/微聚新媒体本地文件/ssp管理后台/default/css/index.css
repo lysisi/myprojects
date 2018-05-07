@@ -1,0 +1,231 @@
+body{color:#fff; font-family:"微软雅黑"; font-size:14px;}
+.wrap{
+    width: 100%;
+    height:auto;
+}
+.wrap1{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto
+}/*把整个屏幕真正撑开--而且能自己实现居中*/
+.main_content{
+    background:#fff;
+    color:#000;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+    float:none;
+    border-radius:8px;
+    padding-left:0;
+    padding-right:0;
+}
+.form-group{
+    position:relative;
+}
+.login_btn{
+    background:#5bc0de;
+    color:#000;
+    font-size:15px;
+    border-radius:3px;
+    border:none;
+    width: 45%;
+    height:45px;
+    margin-left: 100px;
+}
+.mg-t25{
+    margin-top: 25px;
+}
+.error{
+    color: red;
+    padding-left: 5px;
+    display: none;
+}
+.error:before{
+    content: "*";
+    padding-right: 3px;
+}
+.login_input{
+    width:100%;
+    height:40px;
+    border:1px solid #cccccc;
+    border-radius:3px;
+    line-height:40px;
+    padding:2px 5px 2px 30px;
+    background:none;
+}
+.err{
+    position: absolute;
+    padding: 10px 30px;
+    background:#e96152;
+    top:65px;
+    left:40%;
+    display: none;
+    z-index: 9999999;
+}
+.fa{
+    position:absolute;
+    bottom:12px;
+    left:10px;
+    font-size:18px;
+    color:#bcbcbc;
+}
+#Authcode{
+    width:65%;
+}
+.img{
+    width:30%;
+    height:40px;
+    cursor: pointer;
+}
+.check{
+    width:20px;
+    height:20px;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    z-index: 999;
+    cursor: pointer;
+}
+.checkbox input[type="checkbox"]{
+    margin:0;
+}
+.chance{
+    position: relative;
+}
+.chance em{
+    margin-left: 15px;
+    color: #757575;
+}
+.active{
+    width:20px;
+    height:20px;
+    top:0;
+    left:0;
+    position: absolute;
+    background: #1abc9c;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 5px;
+}
+.checkbox{
+    clear: both;
+}
+.font22{
+font-size:22px;
+}
+#logo b{
+background: #e0ecf8;
+color: #000;
+border-radius: 12px;
+padding:0 25px 1px 5px;
+position: absolute;
+top: 20px;
+left:25px;
+}
+#logo{
+width:100%;
+height:72px;
+background:#172d44;
+position: relative;
+}
+.blue{
+width:25%;
+height:2px;
+background: #5bc0de;
+position: absolute;
+top:-2px;
+left:0;
+}
+.red{
+width:25%;
+height:2px;
+background: #d9534f;
+position: absolute;
+top:-2px;
+left:25%;
+}
+.green{
+width:25%;
+height:2px;
+background: #5cb85c;
+position: absolute;
+top:-2px;
+left:50%;
+}
+.yellow{
+width:25%;
+height:2px;
+background: #f0ad4e;
+position: absolute;
+top:-2px;
+left:75%;
+}
+#logo b span{
+background: red;
+width: 9px;
+height:9px;
+border-radius: 2px;
+position: absolute;
+bottom:9px;
+right:12px;
+}
+.mg-t10{
+margin-top:10px;
+}
+.head{
+width: 100%;
+height: 60px;
+background: #f4f7fa;
+color:#000;
+line-height: 66px;
+position: relative;
+}
+
+.head h1{
+    width: 175px;
+    height: 30px;
+    float: left;
+    padding-left: 25px;
+}
+.head h1 img{
+    width: 100%;
+    height: 28px;
+    margin-top: 14px;
+    /*padding-top: 12px;*/
+}
+.head p{
+    font-size: 21px;
+    float: left;
+    font-weight: 600;
+    margin-left: 25px;
+    color: #172D44;
+}
+.head span{
+    width: 2px;
+    height: 28px;
+    background: #172D44;
+    position: absolute;
+    top: 16px;
+    left: 188px;
+}
+@media (min-width:200px){
+.pd-xs-20{
+    padding:5px;
+}
+}
+@media (min-width:768px){
+.pd-sm-50{
+    padding:20px;
+}
+}
+#grad {
+background: -webkit-linear-gradient(#4990c1, #52a3d2, #6186a3); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#4990c1, #52a3d2, #6186a3); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#4990c1, #52a3d2, #6186a3); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#4990c1, #52a3d2, #6186a3); /* 标准的语法 */
+}

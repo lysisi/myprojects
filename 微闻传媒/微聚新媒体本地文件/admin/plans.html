@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-switch.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="css/daterangepicker.css" rel="stylesheet">
+     <!-- Switchery -->
+    <link href="css/switchery.min.css" rel="stylesheet">
+     <!-- iCheck -->
+    <link href="css/green.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    
+</head>
+
+<body class="">
+    <div class="container">
+        <div class="nav-md">
+            <!-- 侧边导航开始 -->
+            <div class='leftnav'>
+              <div class='col-md-3 left_col'>
+                <div class='left_col scroll-view'>
+                  <div class="navbar nav_title" style="border: 0;">
+                    <a href="" class="site_title"><!-- <img src="images/logo.png"> --><span class='ss'>央视新媒体<br>广告投放平台</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+              <br>
+              <!-- /menu profile quick info -->
+
+              <!-- sidebar menu -->
+              <div id="sidebar-menu" class="">
+                <div class="menu_section">
+                  <div>
+                      <ul class="nav side-menu">
+                        <li>
+                          <a href='javascript:;'><i class="fa fa-home"></i>首页</a>
+                       </li>
+                       <li class='active'>
+                         <a href='javascript:;'><i class="fa fa-rss-square"></i>推广</span></a>
+                     </li>
+                     <li>
+                         <a href='javascript:;'><i class="fa fa-line-chart"></i>财务</span></a>
+                     </li>
+                     <li>
+                         <a href='javascript:;'><i class="fa fa-rmb"></i>报表</span></a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <!-- /sidebar menu -->
+ </div>
+</div>
+</div>
+<!-- 侧边导航结束 -->
+<!-- header开始 -->
+<div class="top_nav">
+  <div class="nav_menu">
+    <nav>
+      <img src="" class='photo'>
+      <div class="info"><span class="name"></span><span class="curid"></span><span class="fa fa-chevron-down drop-down"></span><span class="ad">广告主</span>
+        <ul class="about dropdown-menu" style="display: none;">
+          <li><a href="javascript:;">资质管理</a></li>
+          <li><a href="javascript:;">修改密码</a></li>
+          <li><a href="javascript:;">退出登录</a></li>
+        </ul>
+      </div>
+      
+      <a href="javascript:;" class="ad_new">新建广告</a>
+    </nav>
+</div>
+</div>
+<!-- header结束 -->
+<!-- 主体内容开始 -->
+<div class="Rcontent">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>推广计划</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <div class="top">
+              <button type="button" class="btn btn-primary addplanbtn" data-toggle="modal" data-target=".addplan">新增推广计划</button>
+              <!-- datepicker开始 -->
+                <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                  <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                  <span>10/30/2014 - 11/22/2015</span> <b class="caret"></b>
+                </div>
+              <!-- datepicker结束 -->
+
+              <P class='search'><input type="text" name="" placeholder="搜索计划名称/计划ID" id='search'><span class='fa fa-search'></span><span class='searchbtn'></span></P>
+              
+            </div>
+            <table id="datatable" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>计划名称</th>
+                  <th>曝光量（次）</th>
+                  <th>点击量（次）</th>
+                  <th>点击率</th>
+                  <th>消耗金额（元）</th>
+                  <th>日预算（元/天）</th>
+                  <th>计划状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+
+
+              <tbody>
+               
+               
+              </tbody>
+            </table>
+
+           <div id="page"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pop" style="display: none;">
+        <p class="title">注意</p>
+        <div class="con"><p>
+          <span class='fa fa-warning'></span>计划启用中<br>请先暂停计划，再进行编辑或删除
+        </p><p class="btnbox"><span class="btn btn-success">我知道了</span></p></div>
+        
+      </div>
+
+    
+      <div class="modal fade addplan" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel2">创建推广计划</h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <p><label>计划名称</label><input type="text" name="name" placeholder="15字以内，不能包含特殊字符！"></p>
+                <p><label>每日预算</label><input type="text" name="ysuan"><span>元/天 (100~1000000)</span></p>
+               <div class='classes'>
+                 <label>推广标的物<br>类型</label><div class="radiobox">
+                   <ul>
+                     
+                   </ul>
+                 </div>
+               </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-success" data-dismiss=''>保存</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  <div class="iframebox">
+    <iframe src="" scrolling="no" width="100%" height="100%" class='iframeContent'></iframe>
+  </div>            
+</div>
+
+<!-- 主体内容结束 -->
+
+</div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-switch.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+<!-- Switchery -->
+<script src="js/switchery.min.js"></script>
+<!-- iCheck -->
+<script src="js/icheck.min.js"></script>
+<script src="js/paging.js"></script>
+<script src="js/mSlider.js"></script>
+<script src="js/base.js"></script>
+<script type="text/javascript">
+  
+  $("[name='mycheckbox']").bootstrapSwitch({
+    onText:'',  
+    offText:''
+  });
+  init_daterangepicker('#reportrange');
+
+    var _right = new mSlider({
+        dom: ".iframebox",
+        direction: "right"
+    });
+
+    $(".ad_new").click(function(){
+      $(".iframebox iframe").attr('src',getUrl()+'/ads/')
+      _right.open();
+      // var obj=$(".iframeContent").contents().find(".top-title");
+      // console.log(11,$(obj))
+      // obj.click(function(){
+      //   alert(111)
+      //   _right.close();
+      // })
+  
+    });
+    
+    $(".iframebox iframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
+     var obj=$(".iframeContent").contents().find(".top-title");
+          obj.click(function(){
+            alert(111)
+            _right.close();
+          })
+    });
+
+    $(".info .drop-down").click(function(event){
+      event.stopPropagation();
+      event.preventDefault();
+      $(this).siblings(".dropdown-menu").slideToggle(300)
+    })
+
+
+var planlists={
+  init:function(){
+    this.total='';
+    this.pageSize='';
+    this.id='';
+    this.endTime='';
+    this.startTime='';
+    this.flag=true;
+    this.pagelist();
+    this.filterList();
+    this.inputChange();
+    this.addnewPlan();
+  },
+  inputChange:function(){
+    $("input[name='name']").bind('input propertychange',function(){
+      var curval=$(this).val();
+      var reg=/^[A-Za-z0-9\\u4e00-\u9fa5]+$/;
+     var cur= reg.test(curval);
+      if(curval.length>15){
+        alert("15字以内，不能包含特殊字符！");
+        $(this).val("");
+      }
+    });
+     $("input[name='name']").change(function(){
+       var curval=$(this).val();
+       var reg=/^[A-Za-z0-9\\u4e00-\u9fa5]+$/;
+        var cur= reg.test(curval);
+        if(cur==false){
+          alert("15字以内，不能包含特殊字符！");
+          $(this).val("");
+        }
+     });
+    $("input[name='ysuan']").change(function(){
+      var curval=parseInt($(this).val());
+     if(curval<100||curval>1000000){
+      alert("预算在100~1000000以内");
+      $(this).val("")
+     }
+    });
+
+
+  },
+  pagelist:function(){
+    var that = this;
+    that.planlist(1,that.id,that.startTime,that.endTime)
+    that.ajaxPage();
+  },
+  planlist:function(page,id,startTime,endTime){
+    //推广计划列表渲染
+    var type='';
+    var that = this;
+      $.ajax({
+        type:"get",
+        url:getUrl()+"/plans/list",
+        data:{"index_page":page,"name_or_id":id,"start_time":startTime,"end_time":endTime},
+        async:false,
+        dataType:"json",
+        success:function(data){
+          if(data.status==true){
+            console.log(1,data)
+            var plansdata=data.data;
+            that.total=data.count;
+            that.pageSize=data.pageSize;
+            type=data.target_features_type;
+
+
+            var str='';
+            for(var i=0;i<plansdata.length;i++){
+              var obj=plansdata[i];
+              if(obj.flag=='0'){
+                var flagtxt='暂停';
+                var choose='unchecked'
+              }else if(obj.flag=='1'){
+                var flagtxt='启用中';
+                var choose='Checked'
+              };
+              var clickrate=(obj.clicknum)/(obj.shownum);
+              clickrate=clickrate.toFixed(2);
+              
+              var shownum=obj.shownum;
+              var clicknum=obj.clicknum;
+              var charging=obj.charging;
+
+              if(obj.shownum==null){
+                shownum='/'
+              }
+              if(obj.clicknum==null){
+                clicknum='/'
+              }
+              if(obj.charging==null){
+                charging='/'
+              }
+              if(obj.shownum==null||obj.clicknum==null){
+                clickrate='/'
+              }
+              
+              str+='<tr>'+
+                      '<td class="planname"><a href="javascript:;" data-id='+obj.plan_id+' class="plan">'+obj.plan_name+'</a><span class="bj fa fa-pencil drop-down"></span><div class="bjbox dropdown-menu"><input type="text" name="name"><span class="fa fa-close"></span><p><a href="javascript:;" class="save">保存</a></p></div></td>'+
+                      '<td>'+shownum+'</td>'+
+                      '<td>'+clicknum+'</td>'+
+                      '<td>'+clickrate+'</td>'+
+                      '<td>'+charging+'</td>'+
+                      '<td class="ysuan">'+obj.budget+'<span class="bj fa fa-pencil drop-down"></span><div class="bjbox dropdown-menu"><input type="text" name="ysuan"><label>元/天</label><span class="fa fa-close"></span><p><a href="javascript:;" class="save">保存</a></p></div></td>'+
+                      '<td class="status" data-type='+obj.flag+'>'+flagtxt+'</td>'+
+                      '<td><label><input type="checkbox" class="js-switch" '+choose+' data-switchery="true" style="display: none;"></label></td>'+
+                    '</tr>';
+            };
+            $("#datatable tbody").html("");
+            $("#datatable tbody").append(str);
+            that.swith();
+            that.dropDown();
+            that.changeType();
+            that.planLink();
+
+          }
+            }
+      })
+  },
+
+
+  ajaxPage:function(){
+    var that = this;
+    var maxPage=Math.ceil(that.total/that.pageSize);
+    //分页
+    $("#page").paging({
+      pageNo:1,
+      totalPage: maxPage,
+      totalSize: that.total,
+      callback: function(num) {
+        that.planlist(num,that.id,that.startTime,that.endTime)
+      }
+    });
+  },
+  filterList:function(){
+    var that = this;
+    //id搜索
+    $("#search").bind('keypress',function(event){
+
+      if(event.keyCode==13){
+        var searchval=$(this).val();
+        that.id=searchval;
+        that.pagelist()
+      }
+    });
+    //id搜索
+    $(".searchbtn").click(function(){
+        var searchval=$("#search").val();
+        that.id=searchval;
+        that.pagelist()
+    });
+    //时间段筛选
+    $(".range_inputs .applyBtn,.ranges ul li").click(function(){
+      that.startTime=$(".calendar input[name='daterangepicker_start']").val();
+      that.startTime=new Date(that.startTime).getTime()/1000
+      that.endTime=$(".calendar input[name='daterangepicker_end']").val();
+      that.endTime=new Date(that.endTime).getTime()/1000
+      // that.planlist(1,"",that.startTime,that.endTime)
+      that.pagelist()
+    });
+
+
+
+  },
+
+  swith:function(){
+    if ($(".js-switch")[0]) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function (html) {
+            var switchery = new Switchery(html, {
+                color: '#26B99A'
+            });
+        });
+    }
+  },
+  dropDown:function(){
+   
+    $("tr .drop-down").click(function(event){
+      event.stopPropagation();
+      var type=$(this).parents("tr").find(".status").attr("data-type");
+        if(type==1){
+          $(".pop").fadeIn(300);
+          return;
+        }
+      $(this).siblings(".dropdown-menu").slideToggle(300)
+    });
+    $(".bjbox .fa-close").click(function(){
+      $(this).parents(".bjbox").slideUp(300)
+    });
+  },
+  changeType:function(){
+    //修改计划状态;
+   
+    if(this.flag==true){
+       var th =this;
+      $(".switchery").click(function(){
+        th.flag=false;
+        var that = this;
+        var planId=$(that).parents("tr").find(".planname a").attr("data-id");
+        var type=$(that).parents("tr").find(".status").attr("data-type");
+         if(type==1){
+           type=0;
+         }else if(type==0){
+           type=1
+           return false;
+         }
+        $.ajax({
+          type:"post",
+          url:getUrl()+'/plans/ajax_change_flag',
+          dataType:"json",
+          async:false,
+          data:{"primary_key":'plan_id|'+planId,"flag":type},
+          success:function(data){
+            console.log(3,data);
+            if(data.status==true){
+              // window.location.reload(true);
+              var obj=$(that).parents("tr").find(".status");
+              obj.attr("data-type",type);
+              if(type==0){
+                obj.html("暂停")
+              }else if(type==1){
+                obj.html("启用中")
+              };
+              th.flag=true;
+            }
+
+          }
+        })
+      });
+  }
+
+    //编辑计划名称等
+    changefun(".save");
+    changefun(".saved");
+    function changefun(item){
+      $(item).click(function(){
+        var that=this;
+        var obj =$(this).parents("td");
+        var plan_id =$(this).parents("tr").find(".planname a").attr("data-id");
+        console.log(plan_id)
+        var txt = $(this).parents(".dropdown-menu").find("input").val();
+        if(obj.hasClass("planname")){
+          var curkey='plan_name'
+        }else if(obj.hasClass("ysuan")){
+          var curkey='budget';
+        }
+        console.log(curkey);
+        var saveData={};
+        saveData[curkey]=txt;
+        saveData['primary_key']='plan_id|'+plan_id;
+        var savedData={};
+        savedData[curkey]=txt;
+        savedData['primary_key']='plan_id|'+plan_id;
+        savedData['flag']=1
+        // var saveData={curkey:txt,'primary_key':plan_id};
+        // var savedData={curkey:txt,"flag":1,'primary_key':plan_id}
+
+        if(item=='.save'){
+
+          $.ajax({
+            type:"post",
+            url:getUrl()+'/plans/edit',
+            dataType:"json",
+            data:saveData,
+            success:function(data){
+              if(data.status==true){
+                $(that).parents(".dropdown-menu").slideUp(300);
+                window.location.reload(true);
+              }
+            }
+          })
+        }else if(item=='.saved'){
+          $.ajax({
+            type:"post",
+            url:getUrl()+'/plans/edit',
+            dataType:"json",
+            data:savedData,
+            success:function(data){
+             if(data.status==true){
+                $(that).parents(".dropdown-menu").slideUp(300);
+                window.location.reload(true);
+              }
+            }
+          })
+        }
+
+        
+      })
+    }
+    $(".save").click(function(){
+      
+    });
+   
+
+
+    
+
+  },
+  addnewPlan:function(){
+    
+    $.ajax({
+      type:"post",
+      url:getUrl()+'/plans/get_target_features_type',
+      dataType:"JSON",
+      async:false,
+      success:function(data){
+        // console.log(11,data.target_features_type);
+        var type=data.target_features_type
+        $(".classes ul").html("");
+        for(var i=0;i<type.length;i++){
+          var strli='<li class="radio"><input type="radio" name="1" class="flat" data-type='+type[i].id+' >'+type[i].name+'</li>';
+          $(".classes ul").append(strli);
+        }
+        $('input.flat').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+      }
+    })
+
+    $(".addplan .btn-success").click(function(){
+      var planname='';
+      var ysuan='';
+      var radioType='';
+      
+      $(".addplan input[type='text']").each(function(i,item){
+        var len=$(".addplan input[type='text']").length;
+        if($(this).val()==""){
+          var txt = $(this).attr("name");
+         alert(txt+"不能为空");
+          return
+        };
+
+        if(i==len-1){
+          //  planname=$(".addplan input[name='name']").val();
+          // if(planname.length>15){
+          //   alert("15字以内，不能包含特殊字符！")
+          // }
+           ysuan=$(".addplan input[name='ysuan']").val();
+           if(parseInt(ysuan)>1000000||parseInt(ysuan)<100){
+            alert("预算在100~1000000以内");
+            return false;
+           }
+        }
+
+        
+
+      });
+      var radion=$(".addplan input[type='radio']:checked").val();
+
+      if (radion==null) {
+        alert('请选择推广标的物类型！');
+        return
+      }else{
+         radioType=$(".addplan input[type='radio']:checked").attr('data-type');
+         console.log(radioType)
+      }
+      
+
+      $.ajax({
+        type:"post",
+        url:getUrl()+'/plans/add',
+        dataType:"json",
+        async:false,
+        data:{'plan_name':planname,"budget":ysuan,'target_features_type':radioType},
+        success:function(data){
+          if(data.status==true){
+            $(".addplan .btn-success").attr("data-dismiss",'modal');
+              window.location.reload(true);
+            
+          }
+          
+        }
+      })
+    });
+
+      
+   
+  },
+  planLink:function(){
+    $(".planname a.plan").click(function(){
+      var plan_id=$(this).attr("data-id");
+      // localStorage.setItem('plan_id',plan_id);
+      window.location.href='plansdetail.html?plan_id='+plan_id
+    })
+  }
+
+};
+planlists.init();
+
+
+//头部信息
+$.ajax({
+	type:"post",
+	url:getUrl(1)+'/dsplogin/getdspuser',
+	dataType:"json",
+	success:function(data){
+		if(data.status==true){
+			var Data=data.data[0]
+			$(".top_nav").find(".info .name").html(Data.nickname)
+			$(".top_nav").find(".info .curid").html("ID:"+Data.dspadmin_id)
+			$(".top_nav").find(".photo").attr('src',Data.dsp_logo);
+		}
+	}
+})
+
+
+
+
+
+ 
+</script>
+</body>
+</html>

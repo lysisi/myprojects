@@ -1,0 +1,132 @@
+.x_panel {
+    width: 100%;
+    padding:45px 17px  10px 17px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease;
+    margin-bottom: 10px;
+    position: relative;
+}
+.x_panel select{
+    margin: 0 0 15px 0;
+    height: 33px;
+    line-height: 33px;
+    width: 100px;
+    /*padding-left: 20px;*/
+}
+.x_panel select option{width: 100px;}
+.x_title{
+    width: 100%;
+    height: 24px;
+    background: #f5f7fa;
+    position: relative;
+    border-bottom: 1px solid #e6e9ed;
+}
+
+.x_title h2{position: absolute;left: 20px;top:-48px;height: 50px;font-size:18px;color: #222;background: #fff;line-height: 50px;text-align: center;border:1px solid #e6e9ed;border-bottom: none;box-sizing: border-box;width: 126px;border-right:5px solid #d3d6da;border-radius:5px 5px 0 0;font-weight: bold}
+.x_content {position: relative;}
+.x_content .top{padding: 32px 0px 16px;position: relative;clear:both;overflow: hidden;}
+.x_content .top .addplanbtn{display: block;font-size:14px;color: #fff;line-height: 30px;padding: 0 15px;border-radius: 4px;background: #26b99a;width: 132px;border:none;margin-left: 20px;}
+.x_content .top .search{position: absolute;right:0;bottom: 16px}
+.x_content .top .search input{width: 240px;height: 30px;border:1px solid #e6e9ed;font-size:14px;line-height: 30px;padding-left: 20px;border-radius: 15px;}
+.x_content .top .search input:focus{color: #333;outline: medium;}
+.x_content .top .search .fa{position: absolute;right: 10px;top:8px;}
+.x_content .top .search .searchbtn{position: absolute;right: 0px;top:0px;display: block;z-index: 99;width: 30px;height: 30px;z-index: 99;cursor: pointer;}
+.switch{width: 60%;margin: 0 auto;}
+.x_content td .bj{margin-left: 10px;cursor: pointer;}
+td.planname,td.ysuan{position: relative;}
+td.planname a.changing{border:1px solid #e6e9ed;padding: 0 15px;background: #fff;height: 30px;line-height: 30px;}
+td.planname a.adname{color: #73879c !important}
+td.planname .bjbox,td.ysuan .bjbox{position:absolute;top: 41px;left: 0;width:220px;padding: 10px 10px;background: #fff;border:1px solid #e6e9ed;z-index: 9}
+td.planname .plan{font-size:14px;color: #4aa0de}
+.bjbox input{border:1px solid #e6e9ed;background: #eeeeee;margin-bottom: 8px;width: 100%;height: 30px;}
+.bjbox input.adinput{width: 30%;margin-left: 10px;}
+.ysuan .bjbox input{width: 74%;margin-right: 10px;}
+.bjbox a{display: inline-block;*zoom:1;*display: inline;text-align: center;padding: 0 10px;border-radius: 5px;border:1px solid #e6e9ed;margin-left: 4px;}
+.bjbox a.save{width: 80px;background: #26b99a;color: #fff;height: 30px;line-height: 30px;}
+.bjbox a.fa-close{width: 80px;height: 30px;line-height: 30px;color: #333;}
+.bjbox a.fa-close:before{content:"";}
+.bjbox a.saved{background: #26b99a;border:none;}
+.bjbox .fa{position: absolute;top:10px;right: 10px;}
+.bjbox p{text-align: right;height: 30px;}
+.modal-header{background: #ededed;padding:15px 40px;border-radius: 6px 6px 0 0}
+.modal-header h4{font-size:16px;font-weight: bold;}
+.modal-dialog.modal-sm{width: 510px !important}
+.modal-body{padding: 30px 40px}
+.modal-body p{margin-bottom: 20px}
+.modal-body label{font-weight: normal;width: 72px;text-align: right;font-size:14px;color: #73879c;font-weight: bold;margin-right:32px;}
+.modal-body input[type='text']{width: 324px;padding-left: 8px;}
+.modal-body input[name='ysuan']{width: 120px;margin-right: 20px;padding-left: 8px}
+.modal-body .classes{position: relative;}
+.modal-body .classes label{position: absolute;top:0;left: 0}
+.modal-body .radiobox{padding-left: 102px;}
+.modal-body .radiobox .iradio_flat-green{margin-right: 10px}
+.modal-footer {text-align: center;}
+.modal-footer .btn{padding:6px 30px;width: auto !important}
+.modal-footer .btn-success{background: #169f85}
+.dropdown-menu{display: none;}
+#reportrange{position: absolute;right:256px;bottom:16px;}
+.x_content .pdetail{display: block;clear: both;border-bottom: 2px solid #e6e9ed;font-size:16px;height: 50px;float: left;width: auto;margin-top:16px;}
+.x_content .pdetail li{float: left;margin-right: 60px;line-height: 48px;position: relative;}
+.x_content .pdetail li:last-child{margin-right:0px;}
+.x_content .pdetail li .name{font-weight: bold;}
+.x_content .pdetail li.onbj .ysuan{border:1px solid #e6e9ed;padding:6px 12px;border-radius: 4px;background: #fff}
+.x_content .pdetail li.onbj .drop-down{display: none;}
+.x_content .pdetail li .dropdown-menu{line-height: 23px;padding: 10px;top:42px;width: 220px;}
+.x_content .pdetail li .delate{color: #5bc0de;font-size:14px;margin-left: 20px;position: relative;cursor: pointer;}
+.x_content .pdetail .back{margin-right: 10px;cursor: pointer}
+.adleft{padding: 10px 17px 10px 4%}
+.adleft .btn{font-size:14px;}
+.adleft .bjbtn{color: #5bc0de;}
+.adleft .delbtn{color: #d9534f;padding: 6px 8px;}
+.adleft .adtop{font-size:16px;margin-bottom: 16px;line-height: 16px;font-weight: bold;}
+.adleft .showimg{position: relative;top:0;left: 0px;max-width:240px;width:35%;height: auto;background: #fff;border:1px solid #e6e9ed;padding: 10px;}
+.adleft .showimg li img{display: block;width: 100%;height: auto;margin-bottom: 5px;}
+.adleft .ad_title{text-align: center;}
+.adleft .adlists{padding-left: 40%;clear: both;position: absolute;top:0;left: 0;width: 100%}
+.adleft .adlists .dropdown-menu{left: 100px;width: 50%;padding: 10px;}
+.adleft .adlists li{position: relative;font-size:14px;margin-bottom: 0px;background: url(../images/line.jpg) no-repeat 30% 15px;height: 38px;}
+.adleft .adlists li span{display: inline-block;*zoom:1;*display: inline;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.adleft .adlists li span.fa{margin-left: 10px;position: relative;top:-15px;}
+.adleft .adlists li span.title{/*max-width: 100px;*/width: 30%;}
+.adleft .adlists li span.con{padding-left: 10px;}
+.adleft .adlists li span.name{width: 68%;box-sizing: border-box;}
+.adleft .adlists li span.fa-edit{margin-left: 10px;}
+.detailcont{margin-bottom: 20px;background: #f7f7f7;clear: both;overflow: hidden;padding:16px 0 20px 0;display: none}
+.detailcont .x_panel{border:none;background: none}
+.detailcont .x_content{background: #fff;padding:15px 0;}
+.twrapbox{border:1px solid #e6e9ed;padding:10px 20px;}
+#datatable{border:none;}
+#datatable th{font-size:14px;color: #73879C;padding: 8px 0;}
+/*#datatable th:first-child{padding-left:8 !important;}*/
+#datatable td{font-size:14px;color: #73879C}
+#datatable>tbody>tr>td, #datatable>tbody>tr>th, #datatable>tfoot>tr>td, #datatable>tfoot>tr>th, #datatable>thead>tr>td, #datatable>thead>tr>th{border-top:none;border-left: none;border-right:none;}
+.jambo_table{border:1px solid #e6e9ed;}
+.jambo_table>tbody>tr>td, .jambo_table>tbody>tr>th, .jambo_table>tfoot>tr>td, .jambo_table>tfoot>tr>th, .jambo_table>thead>tr>td, .jambo_table>thead>tr>th{border:1px solid #ddd !important;}
+
+.jambo_table th,.jambo_table td{padding-left: 2% !important;}
+.jambo_table th:nth-child(1),.jambo_table td:nth-child(1){padding-left: 8px !important;text-align: center;}
+.jambo_table .contr td{padding: 0px !important;text-align: left;}
+#datatable .line{display: block;width: 40px;height: 1px;background: #73879C;position: relative;top:-5px;}
+#datatable .ad_out{color: #d9534f;cursor: pointer;display: block;width: 100%;height: 100%}
+#datatable tr td{position: relative;line-height: 44px;padding:0;}
+#datatable tr td.lastd{padding:0 !important;text-align: center;}
+#datatable tr td.a-center{padding-left: 0 !important}
+#datatable tr td.planname{cursor: pointer;padding-left: 8px}
+#datatable tr td.onbj .plan,#datatable tr td.onbj .ysmoney{border:1px solid #e6e9ed;padding:6px 12px;border-radius: 4px;background: #fff}
+#datatable tr td.onbj .drop-down{display: none}
+#datatable tr td a{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size: 14px}
+#datatable tr td a.save{color: #fff;display: inline-block;width:80px;height: 30px;line-height: 30px;background: #26b99a;}
+#datatable tr td a.fa-close{color: #333;display: inline-block;width:80px;height: 30px;line-height: 30px;}
+#datatable tr td a.fa-close:before{content:"" !important;}
+#datatable tr td.status{overflow:unset; }
+#datatable tr td .out_tip{position: absolute;top:0%;left: -150%;width: 150%;padding: 10px;border:1px solid #c4c9c9;background: rgba(242,242,242,.8);display: none;}
+#datatable tr td .out_tip li{font-size: 12px;color: #666;white-space: pre-wrap;}
+#datatable tr td .bjbtn{padding: 0;color: #5bc0de;margin-left: 12px;}
+#datatable tbody .on{background: #f7f7f7;}
+

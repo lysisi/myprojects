@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>我</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/material-dashboard.css" />
+	<link rel="stylesheet" href="css/swiper.min.css" />
+	<link rel="stylesheet" href="css/animate.min.css" />
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/personal.css" />
+
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/material.min.js" type="text/javascript"></script>
+	<script src="js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+	<script src="js/nouislider.min.js" type="text/javascript"></script>
+	<script src="js/material-dashboard.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+
+	
+</head>
+<body>
+	<div class="wrapper" style='background: #f99dbd;'>
+		<div class="mywrapper">
+			<div class='mybox'>
+				<img class="headimg" src='img/photo.jpg'/>
+				<a href="javascript:;" class='tome'><img src="img/tome.png"></a>
+				<div class="info">
+					<h3 class='nicheng'>我是shsjj</h3>
+					<p><span class='year'>24</span><span class="star">射手座</span></p>
+					<a href="javascript:;">编辑个人资料</a>
+				</div>
+				 <div class="myfeeling">
+				 	<a href="javascript:;">
+				 		<img src="img/feel1.jpg" class='curfeel'>
+				 		<div class='text'>
+				 			<p><span class='feel'>今夜心情</span><span class="con">我有故事，你有酒么？</span></p>
+				 		</div>
+				 		<img class="toedit" src='img/edit.png'/>
+				 	</a>
+				 </div>
+				 <div class="aboutme">
+				 	<ul>
+				 		<li><a href="javascript:;">我收到了 <img src="img/heart.png" style='display: inline-block;width: 0.26rem;vertical-align: middle;'><span style='color: #e91e63' class="heartnum">66666</span>次心动</a></li>
+				 		<li><a href="javascript:;">我收到了 <span style='color: #6b70e1' class="evanum">54</span>个好友评价</a></li>
+				 		<li><a href="javascript:;">我收到了 <span style='color: #6b70e1' class="newsnum">888</span>条弹幕</a></li>
+				 		<li><a href="javascript:;">我收到了 <span style='color: #ff9933' class="moneynum">444</span>金币</a></li>
+				 	</ul>
+				 </div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+    var uid='15231069699';
+    var sign='jkjkjkj';
+	$.ajax({
+	    type:"get",
+		url:base()+'/api/userinfo/get',
+		data:{"uid":uid},
+		success:function (res) {
+	        var res=JSON.parse(res);
+			if(res.status=='success'){
+			    var infor=res.data;
+			    console.log(infor)
+			    $(".mybox .headimg").attr("src",infor.avatar);
+			    $(".mybox .info .nicheng").html('我是'+infor.nickname);
+                $(".mybox .info p .star").html(infor.ext.xz);
+                $(".mybox .info p .star").css("background",infor.ext.color);
+                if(parseInt(infor.sex)==1){
+                    $(".mybox .info p .year").addClass("otheryear");
+				}
+			    $(".mybox .info p .year").html(infor.age);
+			    $(".myfeeling .curfeel").attr("src",infor.mood);
+                $(".myfeeling .curfeel").attr("src",infor.mood);
+                $(".myfeeling .text .con").html(infor.mood_ext);
+			}
+        }
+		
+
+	});
+	$.ajax({
+	    type:"get",
+		url:base()+'api/userinfo/get_number',
+		data:{"uid":uid},
+		success:function (res) {
+			console.log(res);
+			var res=JSON.parse(res)
+			if(res.status=='success'){
+			    alert(11)
+			    var data=res.data;
+			    $(".heartnum").html(data.xindong_counts);
+			    $(".evanum").html(data.tag_counts);
+			    $(".newsnum").html(data.comment_counts);
+			    $(".moneynum").html(data.gift_counts)
+			}
+        }
+	})
+	
+
+</script>
+</html>
