@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<canvas id='canvas' width='800' height="600"></canvas>
+	</div>
+	<script type="text/javascript" src='js/commonFunctions.js'></script>
+	<script type="text/javascript">
+		var can,ctx,w,h;
+		var girl=new Image();
+		var starpic=new Image();
+		var num=30;
+		var stars=[];
+		var lastTime;
+		var midTime;
+		var flag=false;
+		var change=0;
+
+
+		function init() {
+			can=document.getElementById("canvas");
+			ctx=can.getContext("2d");
+			w=can.width;
+			h=can.height;
+			girl.src="src/girl.jpg";
+			starpic.src='src/star.png';
+			for(var i=0;i<num;i++){
+				stars.push(new starObj());
+				stars[i].init();
+			}
+			lastTime=Date.now();
+			document.addEventListener("mousemove",mouseMove)
+
+			gameLoop()
+		};
+		
+		document.body.onload=init;
+
+		function mouseMove(e){
+			if(e.offsetX||e.layerX){
+				var px=e.offsetX==undefined?e.layerX:e.offsetX;
+				var py=e.offsetY==undefined?e.layerY:e.offsetY;
+				if(100<px&&px<700&&py>100&py<500){
+					flag=true;
+				}else{
+					flag=false
+				}
+
+			}
+			
+		}
+		function gameLoop(){
+			window.requestAnimFrame(gameLoop);
+			var now=Date.now();
+			midTime=now-lastTime;
+			lastTime=now;
+			drawBackground();
+			drawGirl();
+			drawStars();
+			showStars()
+
+		}
+		function drawBackground(){
+			ctx.fillStyle='#393550';
+			ctx.fillRect(0,0,w,h)
+		}
+		function drawGirl(){
+			ctx.drawImage(girl,100,100,600,400);
+		}
+
+		/*星星分析
+		1.很多星星
+		2.序列帧动画
+		3.随机位移
+		4.重生判断
+		*/
+		var starObj=function(){
+			this.x;
+			this.y;
+			this.picnum;
+			this.timer;
+			this.xSpd;
+			this.ySpd;
+		}
+		starObj.prototype.init=function(){
+			this.x=Math.random()*600+100;
+			this.y=Math.random()*400+100;
+			this.picnum=Math.floor(Math.random()*7);
+			this.timer=0;
+			this.xSpd=(Math.random()*3-1.5)*0.05;
+			this.ySpd=(Math.random()*3-1.5)*0.05;
+		}
+
+		starObj.prototype.update=function(){
+			//this.x,this.y超过范围，就重生
+			this.x+=this.xSpd;
+			this.y+=this.ySpd;
+			if(this.x<=100||this.x>=700){
+				this.init();
+			}
+			if(this.y<=100||this.y>=500){
+				this.init();
+			}
+
+			this.timer+=midTime;
+			if(this.timer>60){
+				this.picnum+=1;
+				this.picnum%=7;
+				this.timer=0;
+			}
+			
+		}
+
+		starObj.prototype.draw=function(){
+			//drawImage(img,sx,sy,swidth,sheight,x,y,width,height)
+			//globalAlpha,全局透明度;save()和restore()成对出现，使alpha可以局限再save和restore之间
+			ctx.save();
+			ctx.globalAlpha=change
+			ctx.drawImage(starpic,this.picnum*7,0,7,7,this.x,this.y,7,7);
+			ctx.restore()
+		}
+
+		 function drawStars(){
+		 	for(var i=0;i<num;i++){
+		 		stars[i].update()
+		 		stars[i].draw();
+		 	}
+		 }
+
+
+		 function showStars(){
+		 	if(flag){
+		 		change+=0.03;
+		 		if(change>1){
+		 			change=1
+		 		}
+		 	}else{
+		 		change-=0.03;
+		 		if(change<0){
+		 			change=0
+		 		}
+		 	}
+		 }
+
+
+		 
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<canvas id='canvas' width='800' height="800" style="margin:50px auto">
+			当前浏览器不支持canvas，请更换浏览器后再试
+		</canvas>
+	</div>
+	
+	<script type="text/javascript">
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+		context.fillStyle='red';
+		context.strokeStyle='blue';
+		context.lineWidth=5;
+		context.save();
+		// context.transform(1,0,0,1,0,0)
+		context.transform(1,0,0,1,50,100)
+		context.transform(2,0,0,1.5,0,0)
+		context.transform(1,-0.2,-0.2,1,0,0)
+		//transform变换效果是累加的
+		//setTransform变换效果是从头开始的
+		context.setTransform(1,0,0,100,100)
+
+
+
+
+
+		context.fillRect(50,50,300,300);
+		context.strokeRect(50,50,300,300);
+		context.restore();
+		//变换矩阵（a,b,c,d,e,f）=>(1,0,0,1,0,0)
+		// a/d:水平缩放/垂直缩放
+		// b/c:水平倾斜/垂直倾斜
+		// e/f:水平位移/垂直位移
+
+
+
+	</script>
+</body>
+</html>

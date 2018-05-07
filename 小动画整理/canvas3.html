@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<canvas id='canvas' width='800' height="800" style="margin:50px auto">
+			当前浏览器不支持canvas，请更换浏览器后再试
+		</canvas>
+	</div>
+	<script type="text/javascript">
+		
+		
+		var mradius=20;
+		var mx=400;
+		var my=400;
+		var lastTime;
+		var midTime;
+		var alpha=0;
+
+		window.onload=function() {
+
+			var canvas=document.getElementById("canvas");
+			var context=canvas.getContext("2d");
+			draw(context,mx,my,mradius);
+
+			
+		};
+
+
+
+		function draw(cxt,mx,my,mradius){
+			var canvas=cxt.canvas;
+			cxt.clearRect(0,0,800,800);
+			cxt.save();
+
+			cxt.globalAlpha=1;
+
+			cxt.beginPath();
+			cxt.fillStyle='BLACK';
+			cxt.fillRect(0,0,800,800);
+
+			cxt.beginPath();
+			
+
+			for(var i=0;i<200;i++){
+				mx=Math.random()*800;
+				my=Math.random()*800;
+				var rot=Math.random()*90;
+				mradius=Math.random()*10+20;
+				alpha=Math.random();
+				cxt.save();
+				//save用来保存canvas的状态；可以调用canvas的平移、放缩、旋转、裁剪等操作
+				cxt.translate(mx,my)
+				cxt.rotate(rot/180*Math.PI)
+				cxt.scale(mradius,mradius);
+				starPath(cxt);
+				cxt.fillStyle='yellow';
+				cxt.globalAlpha=alpha;
+				cxt.fill();
+
+
+				cxt.restore();//恢复canvas之前保存的状态，防止对后续绘制有影响	
+			}
+					
+
+			cxt.restore();
+		};
+		//绘制标准星星
+		function starPath(cxt){
+			cxt.beginPath();
+			for(var i=0;i<5;i++){
+				cxt.lineTo(Math.cos((18+i*72)/180*Math.PI),-Math.sin((18+i*72)/180*Math.PI));
+				cxt.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,-Math.sin((54+i*72)/180*Math.PI)*0.5);
+			}
+
+			cxt.closePath();
+
+
+
+		}
+
+		
+	</script>
+</body>
+</html>

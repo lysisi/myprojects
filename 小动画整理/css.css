@@ -1,0 +1,183 @@
+/*小三角*/
+.up{
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid #000;
+	transition: all 0.15s ease-in;
+}
+.rotate{
+	transform: rotate(180reg);
+	webkit-transform:rotate(180reg);
+}
+
+
+
+/*表单元素下划线--background 元素一一对应*/
+input{
+	border:none;
+	background-image:linear-gradient(#9c27b0,#9c27b0),linear-gradient(#d2d2d2,#d2d2d2);
+	background-size:0 2px,100% 1px ;
+	background-repeat: no-repeat;
+	background-position:center bottom,center calc(100% - 1px);
+	background-position:center bottom,center -webkit-calc(100% - 1px);
+	background-color:transparent;
+	box-shadow: none;
+	transition: background 0s ease-out;
+	padding-left: 10px;
+	height: 36px;
+    padding: 7px 0;
+    font-size: 14px;
+    line-height: 1.42857;
+    box-sizing: border-box;
+    display: block;
+    color: #555
+}
+.onfocus input{
+	outline: none;
+	background-size: 100% 2px ,100% 1px;
+	transition-duration: 0.3s
+
+}
+label{position: absolute;top:7px;left: 0;font-size: 14px;transition: all 0.3s ease;pointer-events: none}
+.onfocus label{top:-7px;left: -10px;font-size: 12px;}
+
+/*移动动画*/
+div.move{
+	width:260px;
+	transform:translate3d(100%,0,0);
+	transition:transform 0s;
+	text-align:center;
+	padding:12px;
+	font-size:12px;
+	text-transform: uppercase;
+	color: #fff
+}
+
+
+
+
+
+.checkbox{position: relative;margin-top: 20px;cursor: pointer;}
+
+.checkbox input[name=checkbox]{
+	opacity:1;
+	position: absolute;
+	/*z-index: -1;*/
+	width: 0;
+	height: 0;
+	/*overflow: hidden;*/
+	left:0;
+	pointer-events: none;
+}
+.checkbox .checkbox-material{
+	vertical-align: middle;
+	position: relative;
+	top:0px;
+	/*padding-left: 5px;*/
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+.checkbox .checkbox-material .check {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0,0,0, .54);
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 3px;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .check {
+    background: #9c27b0;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material:before {
+    animation: rippleOn 500ms;
+}
+
+.checkbox .checkbox-material:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.84);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    z-index: 1;
+    opacity: 0;
+    margin: 0;
+    transform: scale3d(2.3, 2.3, 1);
+}
+.checkbox .checkbox-material .check:before {
+    position: absolute;
+    content: "";
+    transform: rotate(45deg);
+    display: block;
+    margin-top: -3px;
+    margin-left: 7px;
+    width: 0;
+    height: 0;
+    background: red;
+    box-shadow: 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0 inset;
+    /*firefox4.0-*/
+     -moz-box-shadow: 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0 inset;
+     /*safari and chrome10.0-*/
+      -webkit-box-shadow: 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0 inset;
+    animation: checkbox-off 0.3s forwards;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
+    color: #FFFFFF;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+    animation: checkbox-on 0.3s forwards;
+}
+.checkbox input[type=checkbox]:not(:checked) + .checkbox-material:before {
+    animation: rippleOff 500ms;
+}
+
+
+
+@keyframes checkbox-on {
+  0% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
+  }
+  50% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
+  }
+  100% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+  }
+  
+}
+
+
+
+
+
+@keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<canvas id='canvas' width='800' height="800" style="margin:50px auto">
+			当前浏览器不支持canvas，请更换浏览器后再试
+		</canvas>
+	</div>
+	<script type="text/javascript">
+		var searchlight={
+			x:400,
+			y:400,
+			radius:150,
+			vx:Math.random()*5+10,
+			vy:Math.random()*5+10
+		}
+		var rot=0;
+		var isIncrease=true;
+		window.onload=function() {
+			var canvas=document.getElementById("canvas");
+			var context=canvas.getContext("2d");
+
+
+			setInterval(
+				function(){
+					draw(context);
+					// update(canvas.width,canvas.height)
+					update2(canvas.width,canvas.height)
+				},40
+
+			)
+
+			
+
+
+			
+		}
+		function draw(cxt){
+			var canvas=cxt.canvas;
+			cxt.clearRect(0,0,canvas.width,canvas.height);
+			cxt.save();
+
+			cxt.beginPath();
+			cxt.fillStyle='BLACK';
+			cxt.fillRect(0,0,800,800);
+
+			cxt.beginPath();
+			// 绘制圆形探照灯
+			// cxt.arc(searchlight.x,searchlight.y,searchlight.radius,0,Math.PI*2);
+
+			//绘制五角星形探照灯 --移动旋转
+			cxt.save();//save用来保存canvas的状态；可以调用canvas的平移、放缩、旋转、裁剪等操作
+			cxt.translate(searchlight.x,searchlight.y)
+			cxt.rotate(rot/180*Math.PI)
+			cxt.scale(searchlight.radius,searchlight.radius);
+			starPath(cxt);
+
+			cxt.fillStyle='#fff';
+			cxt.fill();
+			cxt.restore();//恢复canvas之前保存的状态，防止对后续绘制有影响
+			cxt.clip();
+
+			cxt.font='bold 150px Arial';
+			cxt.textAlign='center';
+			cxt.textBaseline='middle';
+			cxt.fillStyle='#058';
+			cxt.fillText('CANVAS',400,200);
+			cxt.fillText('CANVAS',400,400);
+			cxt.fillText('CANVAS',400,600);
+
+			cxt.restore();
+		};
+		//
+		function starPath(cxt){
+			cxt.beginPath();
+			for(var i=0;i<5;i++){
+				cxt.lineTo(Math.cos((18+i*72)/180*Math.PI),-Math.sin((18+i*72)/180*Math.PI));
+				cxt.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,-Math.sin((54+i*72)/180*Math.PI)*0.5);
+			}
+
+			cxt.closePath();
+
+
+
+		}
+
+		function update(canvasWidth,canvasHeight){
+			// rot+=1;
+			searchlight.x+=searchlight.vx;
+			searchlight.y+=searchlight.vy;
+			if(searchlight.x-searchlight.radius<=0){
+				searchlight.vx=-searchlight.vx;
+				searchlight.x=searchlight.radius
+			}
+			if(searchlight.x+searchlight.radius>=canvasWidth){
+				searchlight.vx=-searchlight.vx;
+				searchlight.x=canvasWidth-searchlight.radius
+			}
+			if(searchlight.y-searchlight.radius<=0){
+				searchlight.vy=-searchlight.vy;
+				searchlight.y=searchlight.radius
+			}
+			if(searchlight.y+searchlight.radius>=canvasHeight){
+				searchlight.vy=-searchlight.vy;
+				searchlight.y=canvasHeight-searchlight.radius
+			}
+
+
+		}
+		//五小星放大缩小
+		function update2(canvasWidth,canvasHeight){
+			if(searchlight.radius>700){
+				isIncrease=false;
+			}else if(searchlight.radius<150){
+				isIncrease=true;
+			};
+			if(isIncrease){
+				searchlight.radius+=5
+			}else{
+				searchlight.radius-=5
+			}
+		}
+	</script>
+</body>
+</html>

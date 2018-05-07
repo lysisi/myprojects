@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<canvas id='canvas' width='800' height="800" style="margin:50px auto">
+			当前浏览器不支持canvas，请更换浏览器后再试
+		</canvas>
+	</div>
+	<script type="text/javascript" src='js/commonFunctions.js'></script>
+	<script type="text/javascript">
+		var context
+		var mradius=20;
+		var mx=400;
+		var my=400;
+		var lastTime;
+		var midTime;
+		var stars=[];
+		var scale=[2,6,8,10,8,6,2];
+		var alpha=[0.2,0.6,0.8,1,0.8,0.6,0.2];
+		var num=Number(200)
+
+		window.onload=function() {
+
+			var canvas=document.getElementById("canvas");
+			context=canvas.getContext("2d");
+			context.fillStyle='BLACK';
+			context.fillRect(0,0,canvas.width,canvas.height);
+
+			
+			for(var i=0;i<num;i++){
+				var star=new starObj();
+				stars.push(star);
+				stars[i].init()
+			}
+			lastTime=Date.now();
+
+			gameLoop();
+
+
+			
+		};
+
+		function gameLoop(){
+			window.requestAnimFrame(gameLoop);
+			var now=Date.now();
+			midTime=now-lastTime;
+			lastTime=now;
+			drawStars()
+		}
+
+		var starObj=function(){
+			this.x;
+			this.y;
+			this.scale;
+			this.xSpd;
+			this.ySpd;
+			this.alpha;
+			this.timer;
+		}
+		starObj.prototype.init=function(){
+			this.x=Math.random()*800;
+			this.y=Math.random()*800;
+			this.xSpd=(Math.random()*3-1.5)*0.05;
+			this.ySpd=(Math.random()*3-1.5)*0.05;
+			this.index=Math.floor(Math.random()*7);
+			this.scale=scale[this.index];
+			this.alpha=alpha[this.index];
+			this.timer=0;
+		}
+		starObj.prototype.update=function(){
+			// this.x+=this.xSpd;
+			// this.y+=this.ySpd;
+			// if(this.x>=800||this.x<=0){
+			// 	this.init();
+			// }
+			// if(this.y>=800||this.y<=0){
+			// 	this.init()
+			// }
+
+			this.timer+=midTime;
+			if(this.timer>=150){
+				this.index+=1;
+				this.index%=7
+				this.scale=scale[this.index];
+				this.alpha=alpha[this.index];
+				this.timer=0;
+			}
+			
+
+		}
+
+		starObj.prototype.draw=function(){
+			context.save();
+			context.translate(this.x,this.y);
+			context.scale(this.scale,this.scale);
+			starPath(context);
+			context.globalAlpha=this.alpha
+			context.fillStyle='yellow';
+			context.fill();
+			context.restore();
+		};
+
+		//绘制标准星星
+		function starPath(cxt){
+			cxt.beginPath();
+			for(var i=0;i<5;i++){
+				cxt.lineTo(Math.cos((18+i*72)/180*Math.PI),-Math.sin((18+i*72)/180*Math.PI));
+				cxt.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,-Math.sin((54+i*72)/180*Math.PI)*0.5);
+			}
+
+			cxt.closePath();
+
+
+
+		}
+
+		function drawStars(){
+			context.clearRect(0,0,800,800);
+			context.beginPath();
+			context.fillStyle='BLACK';
+			context.fillRect(0,0,800,800);
+
+		 	for(var i=0;i<num;i++){
+		 		stars[i].update()
+		 		stars[i].draw()
+		 	}
+		 }
+
+
+	</script>
+</body>
+</html>
